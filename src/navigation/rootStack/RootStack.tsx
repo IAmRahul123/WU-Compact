@@ -7,15 +7,14 @@ import {useSelector} from 'react-redux';
 import {setColors} from '../../config/themeManager';
 
 const RootStack = () => {
-
   const theme = useSelector((state: any) => state.theme.current);
 
   useEffect(() => {
     setColors(theme);
   }, [theme]);
-  
+
   return (
-    <NavigationContainer ref={navigationRef}>
+    <NavigationContainer ref={navigationRef} key={theme}>
       {false ? <PreAuthNavigation /> : <PostAuthNavigation />}
     </NavigationContainer>
   );

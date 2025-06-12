@@ -7,12 +7,11 @@ const themeReducer = createSlice({
   initialState: {current: 'light'},
   reducers: {
     setTheme: (state, action: PayloadAction<ThemeMode>) => {
-        console.log("ACTRIONNSSS",action,action.payload)
       state.current = action.payload;
     },
     initTheme: () => {},
-    toggleTheme: () => {
-        console.log("REDUCER CALLED")
+    toggleTheme: state => {
+      state.current = state.current === 'light' ? 'dark' : 'light';
     },
   },
 });
