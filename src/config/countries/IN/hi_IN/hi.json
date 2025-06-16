@@ -1,0 +1,15 @@
+{
+  "translation": {
+    "CANCEL": "रद्द करें",
+    "GROUP_NAME": "समूह नाम",
+    "BOOKED_DATE": "बुक की गई तारीख",
+    "ADD_BOOKING": "बुकिंग जोड़ें",
+    "ADD_COURT": "कोर्ट जोड़ें",
+    "SHARE": "साझा करें",
+    "BLOCK": "ब्लॉक करें",
+    "TOTAL_INCOME": "कुल आय/राजस्व",
+    "validation": {
+      "email": "ईमेल आवश्यक है"
+    }
+  }
+}
