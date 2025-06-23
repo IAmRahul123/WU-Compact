@@ -11,5 +11,5 @@
     "validation": {
       "email": "Email is required"
     }
- }
+  }
 }

@@ -1,3 +1,3 @@
 export function* helloSaga() {
-  yield console.log('Hello Sagas!')
+  yield console.log('Hello Sagas!');
 }

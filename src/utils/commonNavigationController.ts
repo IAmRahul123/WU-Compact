@@ -13,7 +13,7 @@ export function navigate<T extends keyof RootStackParamList>(
   name: T,
   params?: RootStackParamList[T],
 ) {
-  navigationRef.current?.navigate(name, params);
+  (navigationRef.current as any)?.navigate(name, params);
 }
 
 export function goBack() {

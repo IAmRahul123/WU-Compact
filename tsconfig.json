@@ -2,7 +2,7 @@
   "compilerOptions": {
     "jsx": "react",
     "resolveJsonModule": true,
-    "esModuleInterop": true, 
+    "esModuleInterop": true
   },
   "extends": "@react-native/typescript-config/tsconfig.json"
 }

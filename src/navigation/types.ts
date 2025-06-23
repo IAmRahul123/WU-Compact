@@ -1,10 +1,10 @@
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 export type RootStackParamList = {
   Home: undefined;
   SignIn: undefined;
   SignUp: undefined;
-  Profile:undefined;
+  Profile: undefined;
 };
 
 export type NavigationProp<T extends keyof RootStackParamList> =

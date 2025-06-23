@@ -7,15 +7,13 @@ const resources = {
   },
 };
 
-i18n
-  .use(initReactI18next)
-  .init({
-    resources: resources,
-    lng: config.defaultLanguage,
-    fallbackLng: 'en',
-    interpolation: {
-      escapeValue: false, 
-    },
-  });
+i18n.use(initReactI18next).init({
+  resources: resources,
+  lng: config.defaultLanguage,
+  fallbackLng: 'en',
+  interpolation: {
+    escapeValue: false,
+  },
+});
 
 export default {i18n};

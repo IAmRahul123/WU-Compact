@@ -9,7 +9,7 @@ function getSystemTheme(): 'light' | 'dark' {
 function* handleInitTheme() {
   try {
     const systemTheme: 'light' | 'dark' = yield call(getSystemTheme);
-    console.log("CALLEDDDDDD INIT SAGA")
+    console.log('CALLEDDDDDD INIT SAGA');
     yield put(setTheme(systemTheme));
   } catch (error) {
     console.error('Failed to init theme:', error);
@@ -17,13 +17,11 @@ function* handleInitTheme() {
 }
 
 function* handleToggleTheme() {
-  const currentTheme: ThemeMode = yield select(
-    state => state.theme.current,
-  );
+  const currentTheme: ThemeMode = yield select(state => state.theme.current);
 
   const newTheme: ThemeMode = currentTheme === 'light' ? 'dark' : 'light';
-  console.log('SAGA CALLED', {newTheme,currentTheme});
-  yield put(setTheme(newTheme)); 
+  console.log('SAGA CALLED', {newTheme, currentTheme});
+  yield put(setTheme(newTheme));
 }
 
 export default function* watchTheme() {

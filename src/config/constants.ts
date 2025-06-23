@@ -12,4 +12,3 @@ export const FONT_SIZES = {
   large: 18,
   extraLarge: 20,
 };
-

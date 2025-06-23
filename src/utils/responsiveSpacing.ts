@@ -1,10 +1,10 @@
-import { Dimensions, PixelRatio } from 'react-native';
+import {Dimensions, PixelRatio} from 'react-native';
 
-const { width: SCREEN_WIDTH } = Dimensions.get('window');
+const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
 const guidelineBaseWidth = 375;
 
-export const scaleFont = (size:number) => {
+export const scaleFont = (size: number) => {
   const scale = SCREEN_WIDTH / guidelineBaseWidth;
   const newSize = size * scale;
   return Math.round(PixelRatio.roundToNearestPixel(newSize));

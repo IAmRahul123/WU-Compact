@@ -8,7 +8,7 @@ const argv = yargs(hideBin(process.argv)).argv;
 const env = argv.env || 'UAT';
 const country = argv.country || 'IN';
 
-const countryConfigPath =  `src/config/countries/${country}/common/${country}.json`;
+const countryConfigPath = `src/config/countries/${country}/common/${country}.json`;
 let defaultLanguage = 'en';
 
 if (fs.existsSync(countryConfigPath)) {

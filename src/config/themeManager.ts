@@ -1,4 +1,4 @@
-import { Appearance } from 'react-native';
+import {Appearance} from 'react-native';
 import {light_colors, dark_colors} from './colors';
 
 export type ThemeMode = 'light' | 'dark';
