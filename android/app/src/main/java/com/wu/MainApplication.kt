@@ -11,6 +11,8 @@ import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.react.soloader.OpenSourceMergedSoMapping
 import com.facebook.soloader.SoLoader
+import com.chuckerteam.chucker.api.ChuckerInterceptor
+import com.facebook.react.modules.network.NetworkingModule
 
 class MainApplication : Application(), ReactApplication {
 
@@ -40,5 +42,16 @@ class MainApplication : Application(), ReactApplication {
       // If you opted-in for the New Architecture, we load the native entry point for this app.
       load()
     }
+    if (BuildConfig.DEBUG) {
+    NetworkingModule.setCustomClientBuilder { builder ->
+      val chuckerInterceptor = ChuckerInterceptor.Builder(this)
+        .collector(com.chuckerteam.chucker.api.ChuckerCollector(this))
+        .maxContentLength(250_000L)
+        .alwaysReadResponseBody(true)
+        .build()
+
+      builder.addInterceptor(chuckerInterceptor)
+    }
+  }
   }
 }
