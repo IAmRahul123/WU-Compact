@@ -1,5 +1,5 @@
 import {Button, StyleSheet, Text, View} from 'react-native';
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {navigate} from '../../utils/commonNavigationController';
 import {toggleTheme} from '../../store/reducers/themeReducer';
 import {useDispatch} from 'react-redux';
@@ -14,16 +14,16 @@ const Home = () => {
     try {
       let data = await fetch('https://jsonplaceholder.typicode.com/todos/1');
       data = await data.json();
-      console.log("DATAAAA",data)
+      console.log('DATAAAA', data);
       return data;
     } catch (error) {
       console.log('error', error);
     }
   };
   useEffect(() => {
-    callApi()
-  }, [])
-  
+    callApi();
+  }, []);
+
   return (
     <View>
       <Text
