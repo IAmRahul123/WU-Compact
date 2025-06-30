@@ -25,5 +25,4 @@ const generateFontStyles = () => {
 
 //labelTiny
 const fonts = StyleSheet.create(generateFontStyles());
-
 export default fonts;

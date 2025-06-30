@@ -15,7 +15,7 @@ const RootStack = () => {
 
   return (
     <NavigationContainer ref={navigationRef} key={theme}>
-      {false ? <PreAuthNavigation /> : <PostAuthNavigation />}
+      {true ? <PreAuthNavigation /> : <PostAuthNavigation />}
     </NavigationContainer>
   );
 };
