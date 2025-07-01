@@ -5,17 +5,24 @@ import fonts from '../../config/fonts';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import {colors} from '../../config/themeManager';
+import {showSuccessToast} from '../../utils/helper';
+import {useSelector} from 'react-redux';
 
 const SignIn = () => {
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
   });
+  const theme = useSelector((state: any) => state.theme.current);
+  console.log('THEME', theme);
   const handleChange = (type: 'email' | 'password', text: string) => {
     setLoginData({
       ...loginData,
       [type]: text,
     });
+  };
+  const handleSubmit = () => {
+    showSuccessToast('Logged In Successfully');
   };
   return (
     <View style={styles.main}>
@@ -36,7 +43,7 @@ const SignIn = () => {
             />
           </View>
           <Button
-            handlePress={() => {}}
+            handlePress={handleSubmit}
             title="Sign In"
             btnStyle={{marginTop: 20}}
           />

@@ -1,5 +1,6 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
+// apply from: file("../../node_modules/react-native-codegen/scripts/android/codegen.gradle")
 apply plugin: "com.facebook.react"
 
 /**
@@ -119,4 +120,5 @@ dependencies {
     }
 }
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
+
 

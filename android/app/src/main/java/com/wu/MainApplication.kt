@@ -13,6 +13,7 @@ import com.facebook.react.soloader.OpenSourceMergedSoMapping
 import com.facebook.soloader.SoLoader
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.facebook.react.modules.network.NetworkingModule
+import com.wu.modules.toast.MyTurboModulePackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -22,6 +23,7 @@ class MainApplication : Application(), ReactApplication {
             PackageList(this).packages.apply {
               // Packages that cannot be autolinked yet can be added manually here, for example:
               // add(MyReactNativePackage())
+              add(MyTurboModulePackage())
             }
 
         override fun getJSMainModuleName(): String = "index"
