@@ -1,7 +1,8 @@
-import {TurboModule, TurboModuleRegistry} from 'react-native';
+import type {TurboModule} from 'react-native';
+import {TurboModuleRegistry} from 'react-native';
 
 export interface Spec extends TurboModule {
-  showToast(message: string, status: 'success' | 'pending' | 'error'): void;
+  showToast(message: string, status: string): void;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>('MyTurboModule');

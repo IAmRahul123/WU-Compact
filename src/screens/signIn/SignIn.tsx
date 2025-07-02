@@ -8,6 +8,14 @@ import {colors} from '../../config/themeManager';
 import {showSuccessToast} from '../../utils/helper';
 import {useSelector} from 'react-redux';
 
+// "codegenConfig": {
+//   "name": "MyTurboModule",
+//   "type": "modules",
+//   "jsSrcsDir": "specs",
+//   "android": {
+//     "javaPackageName": "com.wu.modules.toast"
+//   }
+// },
 const SignIn = () => {
   const [loginData, setLoginData] = useState({
     email: '',

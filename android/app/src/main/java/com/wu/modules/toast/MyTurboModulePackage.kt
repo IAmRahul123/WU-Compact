@@ -23,8 +23,8 @@ class MyTurboModulePackage : TurboReactPackage() {
           "MyTurboModule",
           false,
           false,
-          true,  // isTurboModule
-          false
+          false,
+          true // isTurboModule
         )
       )
     }
