@@ -1,6 +1,8 @@
 export const light_colors = {
   background: '#fff',
-  text: '#000',
+  textPrimary: '#000',
+  textSecondary: '#aaa',
+  textSelected: '#fff',
   title: '#444',
   grey_light: '#d6d6d6',
   border_grey: '#b0b0b0',
@@ -16,7 +18,9 @@ export const light_colors = {
 
 export const dark_colors = {
   background: '#000',
-  text: '#fff',
+  textPrimary: '#000000',
+  textSecondary: '#555555',
+  textSelected: '#000',
   title: '#444',
   grey_light: '#d6d6d6',
   border_grey: '#b0b0b0',

@@ -1,3 +1,9 @@
 {
-  "defaultLanguage": "en"
+  "defaultLanguage": "en",
+  "languages": [
+    {
+      "value": "en",
+      "label": "English"
+    }
+  ]
 }

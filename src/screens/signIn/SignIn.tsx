@@ -7,13 +7,12 @@ import Button from '../../components/Button';
 import {colors} from '../../config/themeManager';
 import {showSuccessToast} from '../../utils/helper';
 import {useSelector} from 'react-redux';
-
 // "codegenConfig": {
-//   "name": "MyTurboModule",
+//   "name": "NativeLocalStorageSpec",
 //   "type": "modules",
 //   "jsSrcsDir": "specs",
 //   "android": {
-//     "javaPackageName": "com.wu.modules.toast"
+//     "javaPackageName": "com.wu"
 //   }
 // },
 const SignIn = () => {

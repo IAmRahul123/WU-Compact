@@ -8,6 +8,7 @@
     "SHARE": "साझा करें",
     "BLOCK": "ब्लॉक करें",
     "TOTAL_INCOME": "कुल आय/राजस्व",
+    "SELECT_LANGUAGE": "Select Languages",
     "validation": {
       "email": "ईमेल आवश्यक है"
     }

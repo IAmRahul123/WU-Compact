@@ -1,18 +1,49 @@
 {
   "BASE_URL": "https://google.com",
-  "defaultLanguage": "en",
-  "selectLanguage": true,
-  "translation": {
-    "CANCEL": "Cancel",
-    "GROUP_NAME": "Group Name",
-    "BOOKED_DATE": "Booked Date",
-    "ADD_BOOKING": "Add Booking",
-    "ADD_COURT": "Add Court",
-    "SHARE": "Share",
-    "BLOCK": "Block",
-    "TOTAL_INCOME": "Total Income/Revenue",
-    "validation": {
-      "email": "Email is required"
+  "translations": {
+    "en": {
+      "translation": {
+        "CANCEL": "Cancel",
+        "GROUP_NAME": "Group Name",
+        "BOOKED_DATE": "Booked Date",
+        "ADD_BOOKING": "Add Booking",
+        "ADD_COURT": "Add Court",
+        "SHARE": "Share",
+        "BLOCK": "Block",
+        "TOTAL_INCOME": "Total Income/Revenue",
+        "SELECT_LANGUAGE": "Select Language",
+        "validation": {
+          "email": "Email is required"
+        }
+      }
+    },
+    "hi": {
+      "translation": {
+        "CANCEL": "रद्द करें",
+        "GROUP_NAME": "समूह नाम",
+        "BOOKED_DATE": "बुक की गई तारीख",
+        "ADD_BOOKING": "बुकिंग जोड़ें",
+        "ADD_COURT": "कोर्ट जोड़ें",
+        "SHARE": "साझा करें",
+        "BLOCK": "ब्लॉक करें",
+        "TOTAL_INCOME": "कुल आय/राजस्व",
+        "SELECT_LANGUAGE": "Select Languages",
+        "validation": {
+          "email": "ईमेल आवश्यक है"
+        }
+      }
     }
-  }
+  },
+  "defaultLanguage": "en",
+  "languages": [
+    {
+      "value": "en",
+      "label": "English"
+    },
+    {
+      "value": "hi",
+      "label": "Hindi"
+    }
+  ],
+  "selectLanguage": true
 }

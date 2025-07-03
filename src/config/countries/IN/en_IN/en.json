@@ -8,6 +8,7 @@
     "SHARE": "Share",
     "BLOCK": "Block",
     "TOTAL_INCOME": "Total Income/Revenue",
+    "SELECT_LANGUAGE": "Select Language",
     "validation": {
       "email": "Email is required"
     }
