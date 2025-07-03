@@ -15,11 +15,11 @@
     "test": "jest"
   },
   "codegenConfig": {
-    "name": "MyTurboModule",
+    "name": "NativeToastSpec",
     "type": "modules",
     "jsSrcsDir": "specs",
     "android": {
-      "javaPackageName": "com.wu.modules.toast"
+      "javaPackageName": "com.wu.modules"
     }
   },
   "dependencies": {

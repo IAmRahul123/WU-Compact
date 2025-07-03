@@ -7,16 +7,16 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.module.annotations.ReactModule
 import com.facebook.react.turbomodule.core.interfaces.TurboModule
-//import com.wu.modules.toast.NativeMyTurboModuleSpec // ✅ import the correct generated interface
+import com.wu.modules.NativeToastSpec
 
-@ReactModule(name = MyTurboModule.NAME)
+//@ReactModule(name = NativeToastModule.NAME)
 // class MyTurboModule(
 //   reactContext: ReactApplicationContext
-// ) : NativeMyTurboModuleSpec(reactContext), TurboModule { // ✅ extends the generated interface
-class MyTurboModule(reactContext: ReactApplicationContext) :
-  ReactContextBaseJavaModule(reactContext), TurboModule {
+// ) : NativeMyTurboModuleSpec(reactContext), TurboModule { 
+class NativeToastModule(reactContext: ReactApplicationContext) :
+  NativeToastSpec(reactContext), TurboModule {
   companion object {
-    const val NAME = "MyTurboModule"
+    const val NAME = "NativeToast"
   }
 
   override fun getName(): String = NAME
