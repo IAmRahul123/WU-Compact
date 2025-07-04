@@ -62,7 +62,7 @@ const SelectLanguage: React.FC = () => {
         data={config.languages}
         keyExtractor={item => item.value}
         ListHeaderComponent={
-          <Text style={styles.header}>{t('SELECT_LANGUAGE')}</Text>
+          <Text style={styles.header}>{t('common.selectLanguage')}</Text>
         }
         renderItem={renderItem}
       />

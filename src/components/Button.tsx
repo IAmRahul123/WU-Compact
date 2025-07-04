@@ -9,6 +9,7 @@ import {
 import React from 'react';
 import {colors} from '../config/themeManager';
 import fonts from '../config/fonts';
+import {spacing} from '../utils/responsiveSpacing';
 
 interface ButtonProps {
   title: string;
@@ -37,13 +38,13 @@ const styles = StyleSheet.create({
   container: {
     // flex: 1,
     backgroundColor: colors.btn_bg,
-    padding: 12,
+    padding: spacing(16),
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 20,
+    borderRadius: 50,
   },
   title: {
     color: colors.btn_text,
-    ...fonts.titleRegular,
+    ...fonts.titleMedium,
   },
 });

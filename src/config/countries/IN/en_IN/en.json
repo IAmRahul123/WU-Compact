@@ -1,16 +1,30 @@
 {
   "translation": {
-    "CANCEL": "Cancel",
-    "GROUP_NAME": "Group Name",
-    "BOOKED_DATE": "Booked Date",
-    "ADD_BOOKING": "Add Booking",
-    "ADD_COURT": "Add Court",
-    "SHARE": "Share",
-    "BLOCK": "Block",
-    "TOTAL_INCOME": "Total Income/Revenue",
-    "SELECT_LANGUAGE": "Select Language",
+    "common": {
+      "cancel": "Cancel",
+      "share": "Share",
+      "block": "Block",
+      "selectLanguage": "Select Language",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "auth": {
+      "signIn": "Sign In",
+      "signUp": "Sign Up",
+      "email": "Email",
+      "password": "Password",
+      "confPassword": "Confirm Password",
+      "alreadyHaveAccount": "Already have an account?",
+      "dontHaveAccount": "Don't have an account?"
+    },
     "validation": {
-      "email": "Email is required"
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email address",
+      "emailPlaceholder": "Enter email",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password must be at least 6 characters long",
+      "passwordPlaceholder": "Enter password",
+      "passwordsDoNotMatch": "Passwords must match"
     }
   }
 }

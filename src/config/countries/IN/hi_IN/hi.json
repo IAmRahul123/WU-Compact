@@ -1,16 +1,26 @@
 {
   "translation": {
-    "CANCEL": "रद्द करें",
-    "GROUP_NAME": "समूह नाम",
-    "BOOKED_DATE": "बुक की गई तारीख",
-    "ADD_BOOKING": "बुकिंग जोड़ें",
-    "ADD_COURT": "कोर्ट जोड़ें",
-    "SHARE": "साझा करें",
-    "BLOCK": "ब्लॉक करें",
-    "TOTAL_INCOME": "कुल आय/राजस्व",
-    "SELECT_LANGUAGE": "Select Languages",
+    "common": {
+      "cancel": "रद्द करें",
+      "share": "साझा करें",
+      "block": "ब्लॉक करें",
+      "selectLanguage": "भाषा चुनें",
+      "yes": "हाँ",
+      "no": "नहीं"
+    },
+    "auth": {
+      "signIn": "साइन इन करें",
+      "signUp": "साइन अप करें",
+      "email": "ईमेल",
+      "password": "पासवर्ड"
+    },
     "validation": {
-      "email": "ईमेल आवश्यक है"
+      "emailRequired": "ईमेल आवश्यक है",
+      "emailInvalid": "अमान्य ईमेल पता",
+      "emailPlaceholder": "ईमेल दर्ज करें",
+      "passwordRequired": "पासवर्ड आवश्यक है",
+      "passwordMinLength": "पासवर्ड कम से कम 6 अक्षरों का होना चाहिए",
+      "passwordPlaceholder": "पासवर्ड दर्ज करें"
     }
   }
 }
