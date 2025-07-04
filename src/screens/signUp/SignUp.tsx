@@ -18,12 +18,9 @@ import z from 'zod';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {t} from 'i18next';
 import {navigate} from '../../utils/commonNavigationController';
-
-interface SignUpData {
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
+import {useDispatch} from 'react-redux';
+import {handleSignUp} from '../../store/reducers/authReducer';
+import {SignUpData} from '../../store/reducers/@types/auth';
 
 const getSchema = () =>
   z
@@ -39,9 +36,9 @@ const getSchema = () =>
       message: t('validation.passwordsDoNotMatch'),
     });
 
-const SignUp = () => {
+const SignUp: React.FC = () => {
   const schema = useMemo(() => getSchema(), [t]);
-
+  const dispatch = useDispatch();
   const {
     control,
     formState: {errors},
@@ -50,8 +47,8 @@ const SignUp = () => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = (data: SignUpData) => {
-    console.log('SIGNUP DATA', data);
+  const onSubmit = async (data: SignUpData) => {
+    dispatch(handleSignUp(data));
   };
 
   const handleSignIn = () => navigate('SignIn');

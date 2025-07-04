@@ -18,11 +18,9 @@ import z from 'zod';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {t} from 'i18next';
 import {navigate} from '../../utils/commonNavigationController';
-
-interface LoginData {
-  email: string;
-  password: string;
-}
+import {useDispatch} from 'react-redux';
+import {handleSignin} from '../../store/reducers/authReducer';
+import {LoginData} from '../../store/reducers/@types/auth';
 
 const getSchema = () =>
   z.object({
@@ -30,7 +28,7 @@ const getSchema = () =>
     password: z.string().min(6, {message: t('validation.passwordMinLength')}),
   });
 
-const SignIn = () => {
+const SignIn: React.FC = () => {
   const schema = useMemo(() => getSchema(), [t]);
   const {
     control,
@@ -39,9 +37,10 @@ const SignIn = () => {
   } = useForm({
     resolver: zodResolver(schema),
   });
+  const dispatch = useDispatch();
 
-  const onSubmit = (data: LoginData) => {
-    console.log('DATAAA', data);
+  const onSubmit = async (data: LoginData) => {
+    dispatch(handleSignin(data));
   };
 
   const handleSignup = () => navigate('SignUp');

@@ -4,15 +4,19 @@ import PreAuthNavigation from '../preAuth/PreAuthNavigation';
 import {NavigationContainer} from '@react-navigation/native';
 import {navigationRef} from '../../utils/commonNavigationController';
 import {useSelector} from 'react-redux';
-import {setColors} from '../../config/themeManager';
+import {setColors, ThemeMode} from '../../config/themeManager';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import {StatusBar, Platform} from 'react-native';
+import {RootState} from '../../store';
+import AppLoader from '../../components/AppLoader';
 
 const RootStack = () => {
-  const theme = useSelector((state: any) => state.theme.current);
+  const theme = useSelector((state: RootState) => state.theme.current);
+  const token = useSelector((state: RootState) => state.auth.token);
+  const loader = useSelector((state: RootState) => state.ui.loading);
 
   useEffect(() => {
-    setColors(theme);
+    setColors(theme as ThemeMode);
   }, [theme]);
 
   return (
@@ -24,8 +28,9 @@ const RootStack = () => {
           translucent={false}
         />
         <SafeAreaView style={{flex: 1}} edges={['top', 'bottom']}>
-          {true ? <PreAuthNavigation /> : <PostAuthNavigation />}
+          {!token ? <PreAuthNavigation /> : <PostAuthNavigation />}
         </SafeAreaView>
+        <AppLoader visible={loader} />
       </NavigationContainer>
     </SafeAreaProvider>
   );

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "790787671390",
+    "project_id": "devmart-84b11",
+    "storage_bucket": "devmart-84b11.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790787671390:android:c77c19e853301ac9dcfbcf",
+        "android_client_info": {
+          "package_name": "com.wu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiN8lYJcd8o2_RKdoWeTqjB9SnQ17ZP1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
