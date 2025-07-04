@@ -13,8 +13,8 @@ import com.facebook.react.soloader.OpenSourceMergedSoMapping
 import com.facebook.soloader.SoLoader
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.facebook.react.modules.network.NetworkingModule
-import com.wu.modules.toast.NativeToastPackage
-import com.wu.modules.localStorage.NativeLocalStoragePackage
+// import com.wu.modules.toast.NativeToastPackage
+// import com.wu.modules.localStorage.NativeLocalStoragePackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -24,8 +24,8 @@ class MainApplication : Application(), ReactApplication {
             PackageList(this).packages.apply {
               // Packages that cannot be autolinked yet can be added manually here, for example:
               // add(MyReactNativePackage())
-              add(NativeToastPackage())
-              add(NativeLocalStoragePackage())
+              // add(NativeToastPackage())
+              // add(NativeLocalStoragePackage())
             }
 
         override fun getJSMainModuleName(): String = "index"
