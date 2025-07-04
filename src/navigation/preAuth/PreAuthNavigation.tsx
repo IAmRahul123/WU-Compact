@@ -10,9 +10,9 @@ const Stack = createNativeStackNavigator();
 export default function PreAuthNavigation() {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      {/* {config.selectLanguage && (
+      {config.selectLanguage && (
         <Stack.Screen name="SelectLanguage" component={SelectLanguage} />
-      )} */}
+      )}
       <Stack.Screen name="SignIn" component={SignIn} />
       <Stack.Screen name="SignUp" component={SignUp} />
     </Stack.Navigator>

@@ -1,5 +1,5 @@
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
+import React, {useCallback, useState} from 'react';
 import config from '../../config/config.json';
 import {useSelector, useDispatch} from 'react-redux';
 import {RootState} from '../../store';
@@ -8,44 +8,65 @@ import {colors} from '../../config/themeManager';
 import fonts from '../../config/fonts';
 import {t} from 'i18next';
 import i18n from '../../config/countries/i18n';
+import Button from '../../components/Button';
+import {reset} from '../../utils/commonNavigationController';
+import {padding, spacing} from '../../utils/responsiveSpacing';
 
-const SelectLanguage = () => {
+interface LabelOptions {
+  value: string;
+  label: string;
+}
+const SelectLanguage: React.FC = () => {
   const dispatch = useDispatch();
   const selectedLanguage = useSelector(
     (state: RootState) => state.config.selectedLanguage,
   );
+  const [selected, setSelected] = useState<string>(selectedLanguage);
 
   const handleSelection = (lng: string) => {
-    dispatch(setLanguage(lng));
-    i18n.changeLanguage(lng);
+    setSelected(lng);
   };
-  console.log('SELEEE', selectedLanguage);
+
+  const handleSubmit = () => {
+    dispatch(setLanguage(selected));
+    i18n.changeLanguage(selected);
+    reset('SignIn');
+  };
+
+  const renderItem = useCallback(
+    ({item}: {item: LabelOptions}) => {
+      const isSelected = item.value === selected;
+      return (
+        <TouchableOpacity
+          style={[
+            styles.languageItem,
+            isSelected && styles.selectedLanguageItem,
+          ]}
+          onPress={() => handleSelection(item.value)}>
+          <Text
+            style={[
+              styles.languageText,
+              isSelected && styles.selectedLanguageText,
+            ]}>
+            {item.label}
+          </Text>
+        </TouchableOpacity>
+      );
+    },
+    [selected],
+  );
+
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>{t('SELECT_LANGUAGE')}</Text>
       <FlatList
         data={config.languages}
         keyExtractor={item => item.value}
-        renderItem={({item}) => {
-          const isSelected = item.value === selectedLanguage;
-          return (
-            <TouchableOpacity
-              style={[
-                styles.languageItem,
-                isSelected && styles.selectedLanguageItem,
-              ]}
-              onPress={() => handleSelection(item.value)}>
-              <Text
-                style={[
-                  styles.languageText,
-                  isSelected && styles.selectedLanguageText,
-                ]}>
-                {item.label}
-              </Text>
-            </TouchableOpacity>
-          );
-        }}
+        ListHeaderComponent={
+          <Text style={styles.header}>{t('SELECT_LANGUAGE')}</Text>
+        }
+        renderItem={renderItem}
       />
+      <Button handlePress={handleSubmit} title="Select" />
     </View>
   );
 };
@@ -56,18 +77,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
-    padding: 16,
+    ...padding(16),
   },
   header: {
     ...fonts.titleLarge,
     color: colors.textPrimary,
-    marginBottom: 12,
+    marginBottom: spacing(12),
   },
   languageItem: {
-    padding: 12,
+    ...padding(12),
     backgroundColor: colors.background,
     borderRadius: 8,
-    marginBottom: 10,
+    marginBottom: spacing(10),
     elevation: 5,
     borderWidth: 1,
     borderColor: colors.border_grey,

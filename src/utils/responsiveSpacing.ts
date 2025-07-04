@@ -1,31 +1,29 @@
 import {Dimensions, PixelRatio} from 'react-native';
 
-const {width: SCREEN_WIDTH} = Dimensions.get('window');
+const {width: SCREEN_WIDTH} = Dimensions.get('screen');
 
 const guidelineBaseWidth = 375;
 
-export const scaleFont = (size: number) => {
+export const scaleFont = (size: number, factor: number = 0.25) => {
   const scale = SCREEN_WIDTH / guidelineBaseWidth;
-  const newSize = size * scale;
-  return Math.round(PixelRatio.roundToNearestPixel(newSize));
+  const scaledSize = size + size * (scale - 1) * factor;
+  return Math.round(PixelRatio.roundToNearestPixel(scaledSize));
 };
 
-const baseUnit = 4;
+export const spacing = (dp = 1) => scaleFont(dp);
 
-export const spacing = (factor = 1) => scaleFont(baseUnit * factor);
-
-export const padding = (factor = 1) => ({
-  padding: spacing(factor),
+export const padding = (dp = 1) => ({
+  padding: spacing(dp),
 });
 
-export const margin = (factor = 1) => ({
-  margin: spacing(factor),
+export const margin = (dp = 1) => ({
+  margin: spacing(dp),
 });
 
-export const paddingHorizontal = (factor = 1) => ({
-  paddingHorizontal: spacing(factor),
+export const paddingHorizontal = (dp = 1) => ({
+  paddingHorizontal: spacing(dp),
 });
 
-export const marginVertical = (factor = 1) => ({
-  marginVertical: spacing(factor),
+export const marginVertical = (dp = 1) => ({
+  marginVertical: spacing(dp),
 });
