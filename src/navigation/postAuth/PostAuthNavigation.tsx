@@ -6,7 +6,7 @@ const Stack = createNativeStackNavigator();
 
 export default function PostAuthNavigation() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Home" component={BottomNavigation} />
     </Stack.Navigator>
   );

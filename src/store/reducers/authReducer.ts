@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-  token: '',
+  token: null,
   userName: '',
   img: '',
 };
@@ -14,7 +14,7 @@ const authReducer = createSlice({
       state.token = action.payload;
     },
     handleSignUp: (state, action) => {},
-    handleSignOut: (state, action) => {
+    handleSignOut: state => {
       state = initialState;
     },
   },
