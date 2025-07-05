@@ -25,7 +25,9 @@ import {LoginData} from '../../store/reducers/@types/auth';
 const getSchema = () =>
   z.object({
     email: z.string().email({message: t('validation.emailInvalid')}),
-    password: z.string().min(6, {message: t('validation.passwordMinLength')}),
+    password: z
+      .string()
+      .min(6, {message: t('validation.passwordMinLength', {length: 6})}),
   });
 
 const SignIn: React.FC = () => {

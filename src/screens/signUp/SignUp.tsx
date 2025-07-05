@@ -26,10 +26,12 @@ const getSchema = () =>
   z
     .object({
       email: z.string().email({message: t('validation.emailInvalid')}),
-      password: z.string().min(6, {message: t('validation.passwordMinLength')}),
+      password: z
+        .string()
+        .min(6, {message: t('validation.passwordMinLength', {length: 6})}),
       confirmPassword: z
         .string()
-        .min(6, {message: t('validation.passwordMinLength')}),
+        .min(6, {message: t('validation.passwordMinLength', {length: 6})}),
     })
     .refine(data => data.password === data.confirmPassword, {
       path: ['confirmPassword'],

@@ -25,7 +25,7 @@
           "emailInvalid": "Invalid email address",
           "emailPlaceholder": "Enter email",
           "passwordRequired": "Password is required",
-          "passwordMinLength": "Password must be at least 6 characters long",
+          "passwordMinLength": "Password must be at least {{length}} characters long",
           "passwordPlaceholder": "Enter password",
           "passwordsDoNotMatch": "Passwords must match"
         }
