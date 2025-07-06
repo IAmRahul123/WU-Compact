@@ -17,7 +17,7 @@ const Header = () => {
     <View style={styles.container}>
       <TouchableOpacity style={{}} onPress={navigateToHome}>
         <FastImage
-          source={require('../assets/logoLight.png')}
+          source={require('../assets/logoLight2.png')}
           style={styles.logo}
           resizeMode={FastImage.resizeMode.contain}
         />
