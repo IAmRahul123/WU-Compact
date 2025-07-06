@@ -9,6 +9,7 @@ import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import {StatusBar, Platform} from 'react-native';
 import {RootState} from '../../store';
 import AppLoader from '../../components/AppLoader';
+import SplashScreen from 'react-native-splash-screen';
 
 const RootStack = () => {
   const theme = useSelector((state: RootState) => state.theme.current);
@@ -19,14 +20,20 @@ const RootStack = () => {
     setColors(theme as ThemeMode);
   }, [theme]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      SplashScreen.hide();
+    }, 3000);
+  }, []);
+  console.log('themetheme', theme);
   return (
     <SafeAreaProvider>
       <NavigationContainer ref={navigationRef} key={theme}>
-        <StatusBar
+        {/* <StatusBar
           barStyle={theme === 'light' ? 'dark-content' : 'light-content'}
-          backgroundColor={theme === 'light' ? '#fff' : '#000'}
+          backgroundColor={'#fff'}
           translucent={false}
-        />
+        /> */}
         <SafeAreaView style={{flex: 1}} edges={['top', 'bottom']}>
           {!token ? <PreAuthNavigation /> : <PostAuthNavigation />}
         </SafeAreaView>

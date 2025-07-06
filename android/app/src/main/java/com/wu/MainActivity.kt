@@ -2,7 +2,8 @@ package com.wu
 
 import android.Manifest
 import android.os.Build
-import android.os.Bundle
+import android.os.Bundle;
+import org.devio.rn.splashscreen.SplashScreen;
 import android.content.pm.PackageManager
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
@@ -14,7 +15,8 @@ class MainActivity : ReactActivity() {
   override fun getMainComponentName(): String = "WU"
 
   override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(null)
+    SplashScreen.show(this)
+    super.onCreate(savedInstanceState)
 
     // Request notification permission at runtime (Android 13+)
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
