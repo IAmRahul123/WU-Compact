@@ -5,6 +5,8 @@ export type RootStackParamList = {
   SignIn: undefined;
   SignUp: undefined;
   Profile: undefined;
+  WishList: undefined;
+  Cart: undefined;
 };
 
 export type NavigationProp<T extends keyof RootStackParamList> =
