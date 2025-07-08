@@ -26,7 +26,7 @@ const Header = () => {
         <Icon name="heart" size={spacing(32)} onPress={navigateToWishList} />
         <TouchableOpacity style={styles.cart} onPress={navigateToCart}>
           <Icon name="cart" size={spacing(32)} />
-          {count && <Text style={styles.count}>{count}</Text>}
+          {count ? <Text style={styles.count}>{count}</Text> : <></>}
         </TouchableOpacity>
       </View>
     </View>
@@ -43,9 +43,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: spacing(8),
     // paddingVertical: spacing(16),
-    elevation: 100,
-    borderBottomWidth: 0.6,
-    borderColor: colors.border_grey,
+    // elevation: 10,
+    // borderBottomWidth: 0.6,
+    // borderColor: colors.border_grey,
   },
   logo: {
     width: spacing(120),
