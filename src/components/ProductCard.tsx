@@ -6,74 +6,82 @@ import fonts from '../config/fonts';
 import Button from './Button';
 import FastImage from 'react-native-fast-image';
 import {Product} from '../store/reducers/@types/product';
+import {t} from 'i18next';
 
-const ProductCard = ({
-  product,
-  cartCount,
-  onPress,
-  onAdd,
-  onIncrement,
-  onDecrement,
-}: {
-  product: Product;
-  cartCount: number;
-  onPress: () => void;
-  onAdd: () => void;
-  onIncrement: () => void;
-  onDecrement: () => void;
-}) => {
-  const discountedPrice =
-    product.price - (product.price * (product?.discount || 0)) / 100;
-  return (
-    <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.9}>
-      <FastImage
-        style={styles.image}
-        source={{
-          uri: product?.image,
-          priority: FastImage.priority.high,
-        }}
-        resizeMode={FastImage.resizeMode.contain}
-      />
-      <View style={styles.info}>
-        <Text numberOfLines={2} style={styles.title}>
-          {product.title}
-        </Text>
-        <Text style={styles.brand}>{product.brand.toUpperCase()}</Text>
-        <View style={styles.priceRow}>
-          <Text style={styles.price}>₹{discountedPrice.toFixed(0)}</Text>
-          {product?.discount && product?.discount > 0 && (
-            <>
-              <Text style={styles.original}>₹{product.price}</Text>
-              <Text style={styles.discount}>{product.discount}% OFF</Text>
-            </>
+const ProductCard = React.memo(
+  ({
+    product,
+    cartCount,
+    onPress,
+    onAdd,
+    onIncrement,
+    onDecrement,
+  }: {
+    product: Product;
+    cartCount: number;
+    onPress?: () => void;
+    onAdd: () => void;
+    onIncrement: () => void;
+    onDecrement: () => void;
+  }) => {
+    const discountedPrice =
+      product.price - (product.price * (product?.discount || 0)) / 100;
+    return (
+      <TouchableOpacity
+        style={styles.card}
+        onPress={onPress}
+        activeOpacity={0.9}>
+        <FastImage
+          style={styles.image}
+          source={{
+            uri: product?.image,
+            priority: FastImage.priority.high,
+          }}
+          resizeMode={FastImage.resizeMode.contain}
+        />
+        <View style={styles.info}>
+          <Text numberOfLines={2} style={styles.title}>
+            {product.title}
+          </Text>
+          <Text style={styles.brand}>{product.brand.toUpperCase()}</Text>
+          <View style={styles.priceRow}>
+            <Text style={styles.price}>₹{discountedPrice.toFixed(0)}</Text>
+            {product?.discount && product?.discount > 0 && (
+              <>
+                <Text style={styles.original}>₹{product.price}</Text>
+                <Text style={styles.discount}>
+                  {product.discount}% {t('cart.off')}
+                </Text>
+              </>
+            )}
+          </View>
+
+          {cartCount > 0 ? (
+            <View style={styles.qtyControl}>
+              <Button
+                title="-"
+                handlePress={onDecrement}
+                btnStyle={styles.qtyBtn}
+              />
+              <Text style={styles.qtyText}>{cartCount}</Text>
+              <Button
+                title="+"
+                handlePress={onIncrement}
+                btnStyle={styles.qtyBtn}
+              />
+            </View>
+          ) : (
+            <Button
+              title={t('cart.addToCart')}
+              handlePress={onAdd}
+              btnStyle={styles.button}
+            />
           )}
         </View>
-
-        {cartCount > 0 ? (
-          <View style={styles.qtyControl}>
-            <Button
-              title="-"
-              handlePress={onDecrement}
-              btnStyle={styles.qtyBtn}
-            />
-            <Text style={styles.qtyText}>{cartCount}</Text>
-            <Button
-              title="+"
-              handlePress={onIncrement}
-              btnStyle={styles.qtyBtn}
-            />
-          </View>
-        ) : (
-          <Button
-            title="Add to Cart"
-            handlePress={onAdd}
-            btnStyle={styles.button}
-          />
-        )}
-      </View>
-    </TouchableOpacity>
-  );
-};
+      </TouchableOpacity>
+    );
+  },
+);
 
 export default ProductCard;
 
@@ -86,8 +94,8 @@ const styles = StyleSheet.create({
     gap: spacing(12),
   },
   image: {
-    width: 100,
-    height: 100,
+    width: spacing(100),
+    height: spacing(100),
     borderRadius: 8,
     backgroundColor: '#f6f6f6',
   },

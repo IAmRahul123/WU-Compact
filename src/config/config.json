@@ -28,6 +28,15 @@
           "passwordMinLength": "Password must be at least {{length}} characters long",
           "passwordPlaceholder": "Enter password",
           "passwordsDoNotMatch": "Passwords must match"
+        },
+        "cart": {
+          "subtotal": "Subtotal",
+          "discount": "Discount",
+          "total": "Total",
+          "buyNow": "Buy Now",
+          "noItems": "Your cart is empty!",
+          "addToCart": "Add to Cart",
+          "off": "OFF"
         }
       }
     },
@@ -45,15 +54,28 @@
           "signIn": "साइन इन करें",
           "signUp": "साइन अप करें",
           "email": "ईमेल",
-          "password": "पासवर्ड"
+          "password": "पासवर्ड",
+          "confPassword": "पासवर्ड की पुष्टि करें",
+          "alreadyHaveAccount": "क्या पहले से खाता है?",
+          "dontHaveAccount": "क्या खाता नहीं है?"
         },
         "validation": {
           "emailRequired": "ईमेल आवश्यक है",
           "emailInvalid": "अमान्य ईमेल पता",
           "emailPlaceholder": "ईमेल दर्ज करें",
           "passwordRequired": "पासवर्ड आवश्यक है",
-          "passwordMinLength": "पासवर्ड कम से कम 6 अक्षरों का होना चाहिए",
-          "passwordPlaceholder": "पासवर्ड दर्ज करें"
+          "passwordMinLength": "पासवर्ड कम से कम {{length}} अक्षरों का होना चाहिए",
+          "passwordPlaceholder": "पासवर्ड दर्ज करें",
+          "passwordsDoNotMatch": "पासवर्ड मेल नहीं खाते"
+        },
+        "cart": {
+          "subtotal": "उप-योग",
+          "discount": "छूट",
+          "total": "कुल",
+          "buyNow": "अभी खरीदें",
+          "noItems": "आपकी कार्ट खाली है!",
+          "addToCart": "कार्ट में जोड़ें",
+          "off": "की छूट"
         }
       }
     }

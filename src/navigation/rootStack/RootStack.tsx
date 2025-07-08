@@ -10,6 +10,7 @@ import {StatusBar, Platform} from 'react-native';
 import {RootState} from '../../store';
 import AppLoader from '../../components/AppLoader';
 import SplashScreen from 'react-native-splash-screen';
+import LanguageSync from '../../components/LanguageSync';
 
 const RootStack = () => {
   const theme = useSelector((state: RootState) => state.theme.current);
@@ -34,6 +35,7 @@ const RootStack = () => {
           backgroundColor={'#fff'}
           translucent={false}
         /> */}
+        <LanguageSync />
         <SafeAreaView style={{flex: 1}} edges={['top', 'bottom']}>
           {!token ? <PreAuthNavigation /> : <PostAuthNavigation />}
         </SafeAreaView>

@@ -58,22 +58,27 @@ export const selectCartItems = createSelector([cartItems], item =>
 export const selectCartCount = createSelector([selectCartItems], products =>
   products.reduce((sum, item) => sum + item.count, 0),
 );
-
 export const selectCartPriceDistribution = createSelector(
   [selectCartItems],
   products => {
-    const totalDiscount = products.reduce(
-      (discount, item) =>
-        discount + item.count * ((item.price * (item.discount || 0)) / 100),
-      0,
+    const totalDiscount = parseFloat(
+      products
+        .reduce(
+          (discount, item) =>
+            discount + item.count * ((item.price * (item.discount || 0)) / 100),
+          0,
+        )
+        .toFixed(2),
     );
 
-    const totalPrice = products.reduce(
-      (sum, item) => sum + item.count * item.price,
-      0,
+    const totalPrice = parseFloat(
+      products
+        .reduce((sum, item) => sum + item.count * item.price, 0)
+        .toFixed(2),
     );
 
-    const finalPrice = totalPrice - totalDiscount;
+    const finalPrice = parseFloat((totalPrice - totalDiscount).toFixed(2));
+
     return {
       totalDiscount,
       totalPrice,

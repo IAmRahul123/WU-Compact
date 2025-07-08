@@ -25,6 +25,15 @@
       "passwordMinLength": "Password must be at least {{length}} characters long",
       "passwordPlaceholder": "Enter password",
       "passwordsDoNotMatch": "Passwords must match"
+    },
+    "cart": {
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "total": "Total",
+      "buyNow": "Buy Now",
+      "noItems": "Your cart is empty!",
+      "addToCart": "Add to Cart",
+      "off": "OFF"
     }
   }
 }

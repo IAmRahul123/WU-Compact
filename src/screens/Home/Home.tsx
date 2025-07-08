@@ -34,6 +34,9 @@ const Home = () => {
   const lastOffsetY = useRef(0);
   const products = useSelector((state: RootState) => state.product.products);
   const cartItems = useSelector((state: RootState) => state.product.cart);
+  const lng = useSelector((state: RootState) => state.config.selectedLanguage);
+
+  console.log('LNGGG', lng, t('cart.addToCart'), t('auth.signIn'));
 
   useEffect(() => {
     dispatch({type: 'product/fetchProducts'});
@@ -65,9 +68,7 @@ const Home = () => {
         renderItem={({item, index}) => {
           return (
             <ProductCard
-              onPress={() => {}}
               product={item}
-              key={index}
               cartCount={cartItems[item?.id]?.count}
               onAdd={() => dispatch(addToCart(item))}
               onDecrement={() => dispatch(decrement(item?.id))}

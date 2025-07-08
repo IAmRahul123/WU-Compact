@@ -79,7 +79,6 @@ const SignUp: React.FC = () => {
                       onChangeText={onChange}
                       onBlur={onBlur}
                       label={t('auth.email')}
-                      style={errors.email && {borderColor: colors.red_border}}
                       error={errors.email?.message}
                     />
                   )}
