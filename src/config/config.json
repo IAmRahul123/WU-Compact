@@ -16,7 +16,14 @@
           "goBack": "Go Back",
           "orders": "Orders",
           "address": "Address",
-          "logout": "Logout"
+          "logout": "Logout",
+          "home": "Home",
+          "wishList": "WishList",
+          "cart": "Cart",
+          "selectAddress": "Select Address",
+          "language": "Language",
+          "payment": "Payment",
+          "profile": "Profile"
         },
         "auth": {
           "signIn": "Sign In",
@@ -57,6 +64,9 @@
           "placeholder": "Full address",
           "type": "Label",
           "typePlaceholder": "e.g. Home, Office"
+        },
+        "orders": {
+          "noItems": "No orders yet"
         }
       }
     },
@@ -69,7 +79,20 @@
           "selectLanguage": "भाषा चुनें",
           "yes": "हाँ",
           "no": "नहीं",
-          "default": "डिफ़ॉल्ट"
+          "default": "डिफ़ॉल्ट",
+          "somethingWentWrong": "कुछ गलत हो गया।",
+          "tryAgain": "फिर से प्रयास करें",
+          "goBack": "वापस जाएं",
+          "orders": "ऑर्डर",
+          "address": "पता",
+          "logout": "लॉगआउट",
+          "home": "होम",
+          "wishList": "इच्छा सूची",
+          "cart": "कार्ट",
+          "selectAddress": "पता चुनें",
+          "language": "भाषा",
+          "payment": "भुगतान",
+          "profile": "प्रोफ़ाइल"
         },
         "auth": {
           "signIn": "साइन इन करें",
@@ -77,8 +100,8 @@
           "email": "ईमेल",
           "password": "पासवर्ड",
           "confPassword": "पासवर्ड की पुष्टि करें",
-          "alreadyHaveAccount": "पहले से खाता है?",
-          "dontHaveAccount": "कोई खाता नहीं है?"
+          "alreadyHaveAccount": "क्या आपके पास पहले से खाता है?",
+          "dontHaveAccount": "क्या आपके पास खाता नहीं है?"
         },
         "validation": {
           "emailRequired": "ईमेल आवश्यक है",
@@ -96,20 +119,23 @@
           "discount": "छूट",
           "total": "कुल",
           "buyNow": "अभी खरीदें",
-          "noItems": "आपकी गाड़ी खाली है!",
-          "addToCart": "कार्ट में डालें",
+          "noItems": "आपकी कार्ट खाली है!",
+          "addToCart": "कार्ट में जोड़ें",
           "off": "छूट"
         },
         "address": {
           "addNew": "नया पता जोड़ें",
-          "deleiverTo": "इस पते पर डिलीवर करें",
+          "deleiverTo": "इस पते पर डिलीवरी करें",
           "noItems": "कोई पता उपलब्ध नहीं है!",
           "save": "पता सहेजें",
           "default": "डिफ़ॉल्ट पता सेट करें",
           "label": "पता",
           "placeholder": "पूरा पता",
           "type": "लेबल",
-          "typePlaceholder": "जैसे कि घर, कार्यालय"
+          "typePlaceholder": "जैसे: घर, कार्यालय"
+        },
+        "orders": {
+          "noItems": "अभी तक कोई ऑर्डर नहीं है"
         }
       }
     }

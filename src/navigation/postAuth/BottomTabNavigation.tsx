@@ -5,6 +5,7 @@ import Profile from '../../screens/profile/Profile';
 import Header from '../../components/Header';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {spacing} from '../../utils/responsiveSpacing';
+import {t} from 'i18next';
 
 const Tab: any = createBottomTabNavigator();
 
@@ -18,6 +19,7 @@ export default function BottomNavigation() {
           tabBarIcon: ({focused}: {focused: boolean}) => (
             <Icon name={focused ? 'home' : 'home-outline'} size={spacing(24)} />
           ),
+          tabBarLabel: t('common.home'),
         }}
       />
       <Tab.Screen
@@ -30,6 +32,7 @@ export default function BottomNavigation() {
               size={spacing(24)}
             />
           ),
+          tabBarLabel: t('common.profile'),
         }}
       />
     </Tab.Navigator>

@@ -13,7 +13,14 @@
       "goBack": "Go Back",
       "orders": "Orders",
       "address": "Address",
-      "logout": "Logout"
+      "logout": "Logout",
+      "home": "Home",
+      "wishList": "WishList",
+      "cart": "Cart",
+      "selectAddress": "Select Address",
+      "language": "Language",
+      "payment": "Payment",
+      "profile": "Profile"
     },
     "auth": {
       "signIn": "Sign In",

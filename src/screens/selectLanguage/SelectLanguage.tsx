@@ -9,7 +9,7 @@ import fonts from '../../config/fonts';
 import {t} from 'i18next';
 import i18n from '../../config/countries/i18n';
 import Button from '../../components/Button';
-import {goBack, reset} from '../../utils/commonNavigationController';
+import {goBack, navigate, reset} from '../../utils/commonNavigationController';
 import {padding, spacing} from '../../utils/responsiveSpacing';
 import {useRoute} from '@react-navigation/native';
 
@@ -34,7 +34,7 @@ const SelectLanguage: React.FC = () => {
     dispatch(setLanguage(selected));
     i18n.changeLanguage(selected);
     if (routes?.postAuth) {
-      goBack();
+      navigate('Home', {screen: 'Profile'});
     } else {
       reset('SignIn');
     }

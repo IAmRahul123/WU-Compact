@@ -6,6 +6,8 @@ import {
   TouchableOpacity,
   Image,
   Alert,
+  Platform,
+  PermissionsAndroid,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {
@@ -49,21 +51,48 @@ const Profile = () => {
     ]);
   };
 
+  const requestCameraPermission = async () => {
+    if (Platform.OS === 'android') {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.CAMERA,
+        {
+          title: 'Camera Permission',
+          message: 'DevMart needs access to your camera.',
+          buttonPositive: 'OK',
+        },
+      );
+
+      return granted === PermissionsAndroid.RESULTS.GRANTED;
+    }
+
+    return true;
+  };
+
+  const openCamera = async (options: CameraOptions) => {
+    const hasPermission = await requestCameraPermission();
+    if (!hasPermission) {
+      console.warn('Camera permission denied');
+      return;
+    }
+    let res = await launchCamera(options);
+    return res;
+  };
   const openPicker = async (type: 'camera' | 'gallery') => {
     const options: CameraOptions = {
       mediaType: 'photo',
       includeBase64: true,
       quality: 0.8,
+      cameraType: 'back',
     };
 
     try {
       const result =
         type === 'camera'
-          ? await launchCamera(options)
+          ? await openCamera(options)
           : await launchImageLibrary(options);
 
-      if (result.assets && result.assets.length > 0) {
-        const base64 = result.assets[0].base64;
+      if (result?.assets && result?.assets?.length > 0) {
+        const base64 = result?.assets[0]?.base64;
         if (base64) {
           dispatch(setProfileImage(`data:image/jpeg;base64,${base64}`));
         }
@@ -122,8 +151,6 @@ const Profile = () => {
       <TouchableOpacity style={styles.section} onPress={handleLogOut}>
         <Text style={styles.sectionTitle}>{t('common.logout')}</Text>
       </TouchableOpacity>
-
-      {/* Add more like Settings, Language, Help, etc. if needed */}
     </View>
   );
 };

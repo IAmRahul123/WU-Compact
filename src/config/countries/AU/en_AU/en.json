@@ -9,7 +9,18 @@
       "no": "No",
       "default": "Default",
       "somethingWentWrong": "Something went wrong.",
-      "tryAgain": "Try Again"
+      "tryAgain": "Try Again",
+      "goBack": "Go Back",
+      "orders": "Orders",
+      "address": "Address",
+      "logout": "Logout",
+      "home": "Home",
+      "wishList": "WishList",
+      "cart": "Cart",
+      "selectAddress": "Select Address",
+      "language": "Language",
+      "payment": "Payment",
+      "profile": "Profile"
     },
     "auth": {
       "signIn": "Sign In",
@@ -50,6 +61,9 @@
       "placeholder": "Full address",
       "type": "Label",
       "typePlaceholder": "e.g. Home, Office"
+    },
+    "orders": {
+      "noItems": "No orders yet"
     }
   }
 }
