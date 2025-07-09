@@ -1,5 +1,11 @@
-import {createSelector, createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {
+  createAction,
+  createSelector,
+  createSlice,
+  PayloadAction,
+} from '@reduxjs/toolkit';
 import {RootState} from '..';
+import {LoginData} from './@types/auth';
 
 interface InitialProps {
   token: string | null;
@@ -46,3 +52,5 @@ export const selectProfileImage = createSelector(
   [profileImage, userName],
   (profileImageMap, username) => profileImageMap[username],
 );
+
+export const triggerLogin = createAction<LoginData>('auth/triggerLogin');

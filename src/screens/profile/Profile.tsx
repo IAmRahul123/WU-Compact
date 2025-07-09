@@ -29,6 +29,8 @@ import {navigate} from '../../utils/commonNavigationController';
 import {toggleTheme} from '../../store/reducers/themeReducer';
 import {t} from 'i18next';
 import config from '../../config/config.json';
+import auth from '@react-native-firebase/auth';
+import {showFirebaseError, ToastModule} from '../../nativeModules/ToastModule';
 const Profile = () => {
   const dispatch = useDispatch();
   const profileImage = useSelector(selectProfileImage);
@@ -107,10 +109,23 @@ const Profile = () => {
     navigate('Profile');
   };
 
+  const signOut = () => {
+    auth()
+      .signOut()
+      .then(() => {
+        console.log('User signed out!');
+        dispatch(handleSignOut());
+        ToastModule.showToast('Logged Out Successfully!', 'success');
+      })
+      .catch(error => {
+        console.error('Error signing out:', error);
+        showFirebaseError(error);
+      });
+  };
   const handleLogOut = () => {
     Alert.alert(t('common.logout'), t('common.alertLogout'), [
       {text: t('common.no'), onPress: () => {}},
-      {text: t('common.yes'), onPress: () => dispatch(handleSignOut())},
+      {text: t('common.yes'), onPress: signOut},
     ]);
   };
   return (

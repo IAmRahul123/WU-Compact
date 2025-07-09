@@ -19,7 +19,7 @@ import {zodResolver} from '@hookform/resolvers/zod';
 import {t} from 'i18next';
 import {navigate} from '../../utils/commonNavigationController';
 import {useDispatch} from 'react-redux';
-import {handleSignin} from '../../store/reducers/authReducer';
+import {handleSignin, triggerLogin} from '../../store/reducers/authReducer';
 import {LoginData} from '../../store/reducers/@types/auth';
 
 const getSchema = () =>
@@ -42,7 +42,7 @@ const SignIn: React.FC = () => {
   const dispatch = useDispatch();
 
   const onSubmit = async (data: LoginData) => {
-    dispatch(handleSignin(data));
+    dispatch(triggerLogin(data));
   };
 
   const handleSignup = () => navigate('SignUp');

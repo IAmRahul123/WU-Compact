@@ -1,11 +1,12 @@
 import {call, fork, put, takeLatest} from 'redux-saga/effects';
 import auth from '@react-native-firebase/auth';
 import {hideLoader, showLoader} from '../reducers/uiReducer';
-import {handleSignin} from '../reducers/authReducer';
+import {handleSignin, triggerLogin} from '../reducers/authReducer';
 import {navigate} from '../../utils/commonNavigationController';
 import {PayloadAction} from '@reduxjs/toolkit';
 import {LoginData, SignUpData} from '../reducers/@types/auth';
 import {SagaIterator} from 'redux-saga';
+import {showFirebaseError, ToastModule} from '../../nativeModules/ToastModule';
 
 function* loginSaga(action: PayloadAction<LoginData>): SagaIterator {
   try {
@@ -22,8 +23,10 @@ function* loginSaga(action: PayloadAction<LoginData>): SagaIterator {
         userName: email,
       }),
     );
-  } catch (error) {
+    ToastModule.showToast('Logged In Successfully!', 'success');
+  } catch (error: any) {
     console.log('Error While SignIn', error);
+    showFirebaseError(error);
   } finally {
     yield put(hideLoader());
   }
@@ -39,14 +42,17 @@ function* signUpSaga(action: PayloadAction<SignUpData>) {
       password,
     );
     navigate('SignIn');
-  } catch (error) {
+    ToastModule.showToast('Account Created!', 'success');
+  } catch (error: any) {
     console.log('Error While SignUp', error);
+    showFirebaseError(error);
   } finally {
     yield put(hideLoader());
   }
 }
 
 export default function* watchAuth() {
-  yield takeLatest('auth/handleSignin', loginSaga);
+  // yield takeLatest('auth/handleSignin', loginSaga); // bc of this called twice as i am calling reducer with same name inside saga
+  yield takeLatest(triggerLogin.type, loginSaga);
   yield takeLatest('auth/handleSignUp', signUpSaga);
 }
