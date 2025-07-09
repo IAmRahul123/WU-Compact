@@ -9,7 +9,6 @@ function getSystemTheme(): 'light' | 'dark' {
 function* handleInitTheme() {
   try {
     const systemTheme: 'light' | 'dark' = yield call(getSystemTheme);
-    console.log('CALLEDDDDDD INIT SAGA');
     yield put(setTheme(systemTheme));
   } catch (error) {
     console.error('Failed to init theme:', error);

@@ -73,7 +73,7 @@ const SelectLanguage: React.FC = () => {
         }
         renderItem={renderItem}
       />
-      <Button handlePress={handleSubmit} title="Select" />
+      <Button handlePress={handleSubmit} title={t('common.select')} />
     </View>
   );
 };

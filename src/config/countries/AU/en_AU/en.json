@@ -20,7 +20,9 @@
       "selectAddress": "Select Address",
       "language": "Language",
       "payment": "Payment",
-      "profile": "Profile"
+      "profile": "Profile",
+      "alertLogout": "Are you sure you want to logout?",
+      "select": "Select"
     },
     "auth": {
       "signIn": "Sign In",

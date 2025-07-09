@@ -28,7 +28,7 @@ import {
 import {navigate} from '../../utils/commonNavigationController';
 import {toggleTheme} from '../../store/reducers/themeReducer';
 import {t} from 'i18next';
-
+import config from '../../config/config.json';
 const Profile = () => {
   const dispatch = useDispatch();
   const profileImage = useSelector(selectProfileImage);
@@ -108,7 +108,10 @@ const Profile = () => {
   };
 
   const handleLogOut = () => {
-    dispatch(handleSignOut());
+    Alert.alert(t('common.logout'), t('common.alertLogout'), [
+      {text: t('common.no'), onPress: () => {}},
+      {text: t('common.yes'), onPress: () => dispatch(handleSignOut())},
+    ]);
   };
   return (
     <View style={styles.container}>
@@ -136,11 +139,13 @@ const Profile = () => {
         <Text style={styles.sectionTitle}>{t('common.address')}</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.section}
-        onPress={() => navigate('Language', {postAuth: true})}>
-        <Text style={styles.sectionTitle}>{t('common.selectLanguage')}</Text>
-      </TouchableOpacity>
+      {config.selectLanguage && (
+        <TouchableOpacity
+          style={styles.section}
+          onPress={() => navigate('Language', {postAuth: true})}>
+          <Text style={styles.sectionTitle}>{t('common.selectLanguage')}</Text>
+        </TouchableOpacity>
+      )}
 
       {/* <TouchableOpacity style={styles.section} onPress={handleToggleTheme}>
         <Text style={styles.sectionTitle}>

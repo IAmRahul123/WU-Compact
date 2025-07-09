@@ -23,7 +23,9 @@
           "selectAddress": "Select Address",
           "language": "Language",
           "payment": "Payment",
-          "profile": "Profile"
+          "profile": "Profile",
+          "alertLogout": "Are you sure you want to logout?",
+          "select": "Select"
         },
         "auth": {
           "signIn": "Sign In",
@@ -92,7 +94,9 @@
           "selectAddress": "पता चुनें",
           "language": "भाषा",
           "payment": "भुगतान",
-          "profile": "प्रोफ़ाइल"
+          "profile": "प्रोफ़ाइल",
+          "alertLogout": "क्या आप वाकई लॉगआउट करना चाहते हैं?",
+          "select": "चुनें"
         },
         "auth": {
           "signIn": "साइन इन करें",

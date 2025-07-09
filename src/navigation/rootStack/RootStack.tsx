@@ -20,7 +20,6 @@ const RootStack = () => {
   const loader = useSelector((state: RootState) => state.ui.loading);
 
   useEffect(() => {
-    console.log('CALLEDDDDD');
     setColors(theme as ThemeMode);
   }, [theme]);
 

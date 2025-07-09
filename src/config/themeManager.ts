@@ -7,7 +7,6 @@ export let colors: ThemeColors = light_colors;
 
 export const setColors = (theme: ThemeMode) => {
   colors = theme === 'dark' ? dark_colors : light_colors;
-  console.log('CALLEDDDDD INSIDE', {theme, bg: colors.background});
 };
 
 export function getSystemTheme(): ThemeMode {
