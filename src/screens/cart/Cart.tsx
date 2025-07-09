@@ -22,6 +22,7 @@ import {
 import Button from '../../components/Button';
 import {spacing} from '../../utils/responsiveSpacing';
 import fonts from '../../config/fonts';
+import {navigate} from '../../utils/commonNavigationController';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ const Cart = () => {
   }, []);
 
   const handleBuyNow = () => {
-    // Add navigation or checkout logic here
+    navigate('Select Address');
   };
 
   const renderEmptyComponent = () => (

@@ -6,7 +6,10 @@
       "block": "Block",
       "selectLanguage": "Select Language",
       "yes": "Yes",
-      "no": "No"
+      "no": "No",
+      "default": "Default",
+      "somethingWentWrong": "Something went wrong.",
+      "tryAgain": "Try Again"
     },
     "auth": {
       "signIn": "Sign In",
@@ -24,7 +27,9 @@
       "passwordRequired": "Password is required",
       "passwordMinLength": "Password must be at least {{length}} characters long",
       "passwordPlaceholder": "Enter password",
-      "passwordsDoNotMatch": "Passwords must match"
+      "passwordsDoNotMatch": "Passwords must match",
+      "labelRequired": "Enter a label",
+      "addressRequired": "Enter address"
     },
     "cart": {
       "subtotal": "Subtotal",
@@ -34,6 +39,17 @@
       "noItems": "Your cart is empty!",
       "addToCart": "Add to Cart",
       "off": "OFF"
+    },
+    "address": {
+      "addNew": "Add New Address",
+      "deleiverTo": "Deliver to this address",
+      "noItems": "No Address available!",
+      "save": "Save Address",
+      "default": "Set as default address",
+      "label": "Address",
+      "placeholder": "Full address",
+      "type": "Label",
+      "typePlaceholder": "e.g. Home, Office"
     }
   }
 }

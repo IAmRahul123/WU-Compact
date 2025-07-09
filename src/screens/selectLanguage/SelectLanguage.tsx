@@ -9,8 +9,9 @@ import fonts from '../../config/fonts';
 import {t} from 'i18next';
 import i18n from '../../config/countries/i18n';
 import Button from '../../components/Button';
-import {reset} from '../../utils/commonNavigationController';
+import {goBack, reset} from '../../utils/commonNavigationController';
 import {padding, spacing} from '../../utils/responsiveSpacing';
+import {useRoute} from '@react-navigation/native';
 
 interface LabelOptions {
   value: string;
@@ -18,6 +19,8 @@ interface LabelOptions {
 }
 const SelectLanguage: React.FC = () => {
   const dispatch = useDispatch();
+  const routes: any = useRoute()?.params;
+
   const selectedLanguage = useSelector(
     (state: RootState) => state.config.selectedLanguage,
   );
@@ -30,7 +33,11 @@ const SelectLanguage: React.FC = () => {
   const handleSubmit = () => {
     dispatch(setLanguage(selected));
     i18n.changeLanguage(selected);
-    reset('SignIn');
+    if (routes?.postAuth) {
+      goBack();
+    } else {
+      reset('SignIn');
+    }
   };
 
   const renderItem = useCallback(

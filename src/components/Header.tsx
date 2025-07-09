@@ -23,7 +23,7 @@ const Header = () => {
         />
       </TouchableOpacity>
       <View style={styles.rightContainer}>
-        <Icon name="heart" size={spacing(32)} onPress={navigateToWishList} />
+        {/* <Icon name="heart" size={spacing(32)} onPress={navigateToWishList} /> */}
         <TouchableOpacity style={styles.cart} onPress={navigateToCart}>
           <Icon name="cart" size={spacing(32)} />
           {count ? <Text style={styles.count}>{count}</Text> : <></>}

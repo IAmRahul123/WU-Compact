@@ -16,7 +16,12 @@ function* loginSaga(action: PayloadAction<LoginData>): SagaIterator {
       email,
       password,
     );
-    yield put(handleSignin(response.user.uid));
+    yield put(
+      handleSignin({
+        token: response.user.uid,
+        userName: email,
+      }),
+    );
   } catch (error) {
     console.log('Error While SignIn', error);
   } finally {

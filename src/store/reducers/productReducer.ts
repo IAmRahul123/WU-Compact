@@ -42,10 +42,13 @@ const productSlice = createSlice({
         }
       }
     },
+    emptyCart: state => {
+      state.cart = {};
+    },
   },
 });
 
-export const {setProducts, addToCart, decrement, increment} =
+export const {setProducts, addToCart, decrement, increment, emptyCart} =
   productSlice.actions;
 export default productSlice.reducer;
 

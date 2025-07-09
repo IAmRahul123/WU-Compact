@@ -7,6 +7,10 @@ export type RootStackParamList = {
   Profile: undefined;
   WishList: undefined;
   Cart: undefined;
+  'Select Address': {goToPayment?: boolean};
+  Payment: undefined;
+  Orders: undefined;
+  Language: {postAuth?: boolean};
 };
 
 export type NavigationProp<T extends keyof RootStackParamList> =

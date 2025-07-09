@@ -28,7 +28,7 @@ const ProductCard = React.memo(
       product.price - (product.price * (product?.discount || 0)) / 100;
     return (
       <TouchableOpacity
-        style={styles.card}
+        style={[styles.card, {backgroundColor: colors.background}]}
         onPress={onPress}
         activeOpacity={0.9}>
         <FastImage

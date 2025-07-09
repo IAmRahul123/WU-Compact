@@ -11,6 +11,8 @@ import {RootState} from '../../store';
 import AppLoader from '../../components/AppLoader';
 import SplashScreen from 'react-native-splash-screen';
 import LanguageSync from '../../components/LanguageSync';
+import ErrorBoundary from '../../components/ErrorBoundary';
+import {errorRef} from '../../utils/globalErrorHandler';
 
 const RootStack = () => {
   const theme = useSelector((state: RootState) => state.theme.current);
@@ -18,6 +20,7 @@ const RootStack = () => {
   const loader = useSelector((state: RootState) => state.ui.loading);
 
   useEffect(() => {
+    console.log('CALLEDDDDD');
     setColors(theme as ThemeMode);
   }, [theme]);
 
@@ -29,18 +32,20 @@ const RootStack = () => {
   console.log('themetheme', theme);
   return (
     <SafeAreaProvider>
-      <NavigationContainer ref={navigationRef} key={theme}>
-        {/* <StatusBar
+      <ErrorBoundary ref={errorRef}>
+        <NavigationContainer ref={navigationRef} key={theme}>
+          {/* <StatusBar
           barStyle={theme === 'light' ? 'dark-content' : 'light-content'}
           backgroundColor={'#fff'}
           translucent={false}
         /> */}
-        <LanguageSync />
-        <SafeAreaView style={{flex: 1}} edges={['top', 'bottom']}>
-          {!token ? <PreAuthNavigation /> : <PostAuthNavigation />}
-        </SafeAreaView>
-        <AppLoader visible={loader} />
-      </NavigationContainer>
+          <LanguageSync />
+          <SafeAreaView style={{flex: 1}} edges={['top', 'bottom']}>
+            {!token ? <PreAuthNavigation /> : <PostAuthNavigation />}
+          </SafeAreaView>
+          <AppLoader visible={loader} />
+        </NavigationContainer>
+      </ErrorBoundary>
     </SafeAreaProvider>
   );
 };

@@ -3,10 +3,12 @@ import config from '../../config/config.json';
 
 interface ConfigState {
   selectedLanguage: string;
+  firstTimeAppInitialized: boolean;
 }
 
 const initialState: ConfigState = {
   selectedLanguage: config.defaultLanguage || 'en',
+  firstTimeAppInitialized: false,
 };
 
 const configSlice = createSlice({
@@ -19,6 +21,7 @@ const configSlice = createSlice({
       );
       if (isValid) {
         state.selectedLanguage = action.payload;
+        state.firstTimeAppInitialized = true;
       }
     },
   },
