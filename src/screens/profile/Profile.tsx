@@ -109,6 +109,7 @@ const Profile = () => {
     navigate('Profile');
   };
 
+  //use in saga and call it in apiclient axios
   const signOut = () => {
     auth()
       .signOut()

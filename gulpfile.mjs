@@ -59,7 +59,7 @@ export const prepareConfig = () => {
         edit: mergedJson => {
           return {
             ...mergedJson,
-            translations, // ✅ Add all languages here
+            translations,
           };
         },
       }),
