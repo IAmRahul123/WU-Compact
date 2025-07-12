@@ -29,6 +29,7 @@ const RootStack = () => {
     }, 3000);
   }, []);
   console.log('themetheme', theme);
+
   return (
     <SafeAreaProvider>
       <ErrorBoundary ref={errorRef}>
