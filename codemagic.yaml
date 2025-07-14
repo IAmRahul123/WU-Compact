@@ -42,7 +42,7 @@ workflows:
             app/build/outputs/apk/release/app-release.apk \
             --app $FIREBASE_APP_ID \
             --groups "testers,qa-team" \
-            --emails "email1@example.com,email2@example.com" \
+            --emails "adityaranjangudu98@gmail.com" \
             --release-notes "Branch: $CM_BRANCH, Commit: $CM_COMMIT" \
             --token $FIREBASE_TOKEN
 
