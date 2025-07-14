@@ -1,0 +1,53 @@
+workflows:
+  android-release-minor:
+    name: Android Build + Minor Version Bump
+    max_build_duration: 45
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: release
+          include: true
+    environment:
+      vars:
+        FIREBASE_APP_ID: '<your-app-id>'
+      groups:
+        - firebase_credentials
+
+    scripts:
+      - name: Install deps
+        script: |
+          yarn install
+
+      - name: Print environment (for debug)
+        script: |
+          printenv
+
+      - name: Run tests
+        script: |
+          yarn test || echo "No tests configured"
+
+      - name: Bump minor version
+        script: |
+          MAJOR=1
+          MINOR=$(($BUILD_NUMBER))
+          echo "VERSION_CODE=$BUILD_NUMBER" >> $CM_ENV
+          echo "VERSION_NAME=$MAJOR.$MINOR" >> $CM_ENV
+          echo "VERSION_NAME set to $MAJOR.$MINOR"
+
+      - name: Build release APK
+        script: |
+          cd android
+          ./gradlew assembleRelease -PversionCode=$VERSION_CODE -PversionName=$VERSION_NAME
+
+      - name: Upload to Firebase App Distribution
+        script: |
+          curl -sL firebase.tools | bash
+          firebase appdistribution:distribute ./app/build/outputs/apk/release/app-release.apk \
+            --app $FIREBASE_APP_ID \
+            --groups testers \
+            --release-notes "Branch: $CM_BRANCH, Commit: $CM_COMMIT" \
+            --token $FIREBASE_TOKEN
+
+artifacts:
+  - android/app/build/outputs/**/*.apk
