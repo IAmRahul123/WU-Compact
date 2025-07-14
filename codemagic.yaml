@@ -1,51 +1,48 @@
 workflows:
   android-release-minor:
-    name: Android Build + Minor Version Bump
+    name: Android Build & Firebase Distribution
     max_build_duration: 45
     triggering:
-      events:
-        - push
+      events: [push, tag]
       branch_patterns:
         - pattern: release
-          include: true
     environment:
       vars:
-        FIREBASE_APP_ID: '<your-app-id>'
+        FIREBASE_APP_ID: $FIREBASE_APP_ID
+        # Ensure you store FIREBASE_TOKEN securely in Codemagic UI
       groups:
-        - firebase_credentials
+        - Firebase
 
     scripts:
-      - name: Install deps
-        script: |
-          yarn install
+      - name: Install Dependencies
+        script: yarn install
 
-      - name: Print environment (for debug)
-        script: |
-          printenv
+      - name: Run Unit Tests
+        script: yarn test || echo "Skipping tests"
 
-      - name: Run tests
-        script: |
-          yarn test || echo "No tests configured"
-
-      - name: Bump minor version
+      - name: Bump Minor Version
         script: |
           MAJOR=1
-          MINOR=$(($BUILD_NUMBER))
+          MINOR=$(( BUILD_NUMBER ))
           echo "VERSION_CODE=$BUILD_NUMBER" >> $CM_ENV
           echo "VERSION_NAME=$MAJOR.$MINOR" >> $CM_ENV
-          echo "VERSION_NAME set to $MAJOR.$MINOR"
+          echo "✅ Bumped version to $MAJOR.$MINOR"
 
-      - name: Build release APK
+      - name: Build Release APK
         script: |
           cd android
-          ./gradlew assembleRelease -PversionCode=$VERSION_CODE -PversionName=$VERSION_NAME
+          ./gradlew assembleRelease \
+            -PversionCode=$VERSION_CODE \
+            -PversionName=$VERSION_NAME
 
       - name: Upload to Firebase App Distribution
         script: |
           curl -sL firebase.tools | bash
-          firebase appdistribution:distribute ./app/build/outputs/apk/release/app-release.apk \
+          firebase appdistribution:distribute \
+            app/build/outputs/apk/release/app-release.apk \
             --app $FIREBASE_APP_ID \
-            --groups testers \
+            --groups "testers,qa-team" \
+            --emails "email1@example.com,email2@example.com" \
             --release-notes "Branch: $CM_BRANCH, Commit: $CM_COMMIT" \
             --token $FIREBASE_TOKEN
 
