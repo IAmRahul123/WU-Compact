@@ -36,6 +36,10 @@ workflows:
           echo "VERSION_NAME=$MAJOR.$MINOR" >> $CM_ENV
           echo "✅ Bumped version to $MAJOR.$MINOR"
 
+      - name: Make gradlew executable
+        script: |
+          chmod +x android/gradlew
+
       - name: Build Release APK
         script: |
           cd android
