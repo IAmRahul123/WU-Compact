@@ -53,9 +53,8 @@ workflows:
           firebase appdistribution:distribute \
             app/build/outputs/apk/release/app-release.apk \
             --app $FIREBASE_APP_ID \
-            --groups "testers,qa-team" \
-            --emails "adityaranjangudu98@gmail.com" \
-            --release-notes "Branch: $CM_BRANCH\nCommit: $CM_COMMIT" \
+            --groups "qa" \
+            --release-notes "Branch: $CM_BRANCH\nCommit: $CM_COMMIT"
 
 artifacts:
   - android/app/build/outputs/**/*.apk
