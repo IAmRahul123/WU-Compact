@@ -1,6 +1,9 @@
 import axios from 'axios';
 import store, {RootState} from '../store';
-import {handleSignOut} from '../store/reducers/authReducer';
+import {
+  handleLogoutRequested,
+  handleSignOut,
+} from '../store/reducers/authReducer';
 import config from '../config/config.json';
 
 const apiClient = axios.create({
@@ -37,7 +40,7 @@ apiClient.interceptors.response.use(
     const status = error.response?.status;
     if (status === 401) {
       console.log('Unauthorized. Logging out...');
-      store.dispatch(handleSignOut());
+      store.dispatch(handleLogoutRequested());
     }
 
     return Promise.reject(error);

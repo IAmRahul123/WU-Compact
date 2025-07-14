@@ -21,6 +21,7 @@ import {colors} from '../../config/themeManager';
 import fonts from '../../config/fonts';
 import {spacing} from '../../utils/responsiveSpacing';
 import {
+  handleLogoutRequested,
   handleSignOut,
   selectProfileImage,
   setProfileImage,
@@ -111,17 +112,7 @@ const Profile = () => {
 
   //use in saga and call it in apiclient axios
   const signOut = () => {
-    auth()
-      .signOut()
-      .then(() => {
-        console.log('User signed out!');
-        dispatch(handleSignOut());
-        ToastModule.showToast('Logged Out Successfully!', 'success');
-      })
-      .catch(error => {
-        console.error('Error signing out:', error);
-        showFirebaseError(error);
-      });
+    dispatch(handleLogoutRequested());
   };
   const handleLogOut = () => {
     Alert.alert(t('common.logout'), t('common.alertLogout'), [

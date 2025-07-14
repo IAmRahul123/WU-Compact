@@ -12,6 +12,9 @@ import Button from '../../components/Button';
 import {goBack, navigate, reset} from '../../utils/commonNavigationController';
 import {padding, spacing} from '../../utils/responsiveSpacing';
 import {useRoute} from '@react-navigation/native';
+import {logError, logEvent} from '../../utils/firebase';
+import useScreenTracking from '../../hooks/useScreenTracking';
+import {EVENTS} from '../../constants/analyticsConstants';
 
 interface LabelOptions {
   value: string;
@@ -20,7 +23,6 @@ interface LabelOptions {
 const SelectLanguage: React.FC = () => {
   const dispatch = useDispatch();
   const routes: any = useRoute()?.params;
-
   const selectedLanguage = useSelector(
     (state: RootState) => state.config.selectedLanguage,
   );
@@ -31,12 +33,17 @@ const SelectLanguage: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    dispatch(setLanguage(selected));
-    i18n.changeLanguage(selected);
-    if (routes?.postAuth) {
-      navigate('Home', {screen: 'Profile'});
-    } else {
-      reset('SignIn');
+    try {
+      dispatch(setLanguage(selected));
+      i18n.changeLanguage(selected);
+      logEvent(EVENTS.LANGUAGE_SELECTED, {language: selected});
+      if (routes?.postAuth) {
+        navigate('Home', {screen: 'Profile'});
+      } else {
+        reset('SignIn');
+      }
+    } catch (error) {
+      logError(error, 'Language change failed in SelectLanguage screen');
     }
   };
 

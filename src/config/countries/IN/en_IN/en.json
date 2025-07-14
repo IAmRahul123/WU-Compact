@@ -22,7 +22,8 @@
       "payment": "Payment",
       "profile": "Profile",
       "alertLogout": "Are you sure you want to logout?",
-      "select": "Select"
+      "select": "Select",
+      "noProducts": "No Products Available!"
     },
     "auth": {
       "signIn": "Sign In",

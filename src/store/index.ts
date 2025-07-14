@@ -12,6 +12,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import {analyticsMiddleware} from './analyticsMiddleware';
 // import createSagaMiddleware from 'redux-saga'
 const createSagaMiddleware = require('redux-saga').default; //required for 0.79 react native
 
@@ -35,7 +36,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(sagaMiddleware),
+    }).concat(sagaMiddleware, analyticsMiddleware),
 });
 
 sagaMiddleware.run(rootSaga);

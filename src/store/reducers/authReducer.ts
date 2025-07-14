@@ -54,3 +54,6 @@ export const selectProfileImage = createSelector(
 );
 
 export const triggerLogin = createAction<LoginData>('auth/triggerLogin');
+export const handleLogoutRequested = createAction(
+  'auth/handleLogoutRequested ',
+);
