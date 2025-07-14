@@ -55,8 +55,7 @@ workflows:
             --app $FIREBASE_APP_ID \
             --groups "testers,qa-team" \
             --emails "adityaranjangudu98@gmail.com" \
-            --release-notes "Branch: $CM_BRANCH, Commit: $CM_COMMIT" \
-            --token $FIREBASE_TOKEN
+            --release-notes "Branch: $CM_BRANCH\nCommit: $CM_COMMIT" \
 
 artifacts:
   - android/app/build/outputs/**/*.apk
