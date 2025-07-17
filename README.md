@@ -1,97 +1,185 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🛒 DevMart
 
-# Getting Started
+DevMart is a React Native e-commerce platform with Firebase Authentication, multilingual support, and country-based dynamic configuration.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## 📦 Installation
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
-
-To start the Metro dev server, run the following command from the root of your React Native project:
-
-```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+```bash
+https://github.com/IAmRahul123/WU-Compact.git
+cd WU-Compact
+yarn install
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## 🌍 Language & Country Configuration
 
-### Android
+DevMart supports building the app for specific **countries** and **languages**.
 
-```sh
-# Using npm
-npm run android
+### Language Support
 
-# OR using Yarn
-yarn android
+- Uses [`i18next`](https://www.i18next.com/) with `react-i18next`.
+- Language files are stored in the project and automatically loaded.
+- On the first app launch, a language selection screen is shown.
+
+### Country-based Setup
+
+Before running the app, generate a country-specific config file using:
+
+```bash
+yarn setup-uat
 ```
 
-### iOS
+This runs:
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```bash
+cross-env gulp prepare-config --env=UAT --country=IN
 ```
 
-Then, and every time you update your native dependencies, run:
+- This will merge and generate a country + environment config file.
+- The config file is then used throughout the app.
 
-```sh
-bundle exec pod install
+You can modify the environment and country by replacing `UAT` and `IN`.
+
+---
+
+## 🧪 Running the App
+
+```bash
+yarn android     # For Android
+yarn ios         # For iOS (macOS only)
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+Make sure to run the `setup-uat` or your respective setup script before launching the app.
 
-```sh
-# Using npm
-npm run ios
+---
 
-# OR using Yarn
-yarn ios
+## 🧪 Running Tests
+
+```bash
+yarn test
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+You can also run:
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```bash
+yarn test:coverage   # For coverage report
+```
 
-## Step 3: Modify your app
+---
 
-Now that you have successfully run the app, let's make changes!
+## 🐛 Debugging Tools
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+- [React Native Debugger](https://github.com/jhen0409/react-native-debugger)
+- [Flipper](https://fbflipper.com/) for inspecting network, Redux state, logs, etc.
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+Ensure both are installed for optimal dev experience.
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+---
 
-## Congratulations! :tada:
+## 🧹 Code Quality
 
-You've successfully run and modified your React Native App. :partying_face:
+- **TypeScript** used across the project.
+- **ESLint** for linting and **Prettier** for formatting.
+- **Husky** pre-commit hooks auto-run lint + format checks before allowing commits.
 
-### Now what?
+To manually lint and format:
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+```bash
+yarn lint
+yarn format
+```
 
-# Troubleshooting
+If Husky isn't installed (after fresh clone):
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+```bash
+yarn prepare
+```
 
-# Learn More
+---
 
-To learn more about React Native, take a look at the following resources:
+### Manual Deployment
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+---
+
+#### Android Deployment (Manual)
+
+1. **Generate Signed APK**
+
+   ```bash
+   cd android
+   ./gradlew assembleRelease
+   ```
+
+2. **Locate APK**
+   The generated APK file will be available at:
+
+   ```bash
+   android/app/build/outputs/apk/release/app-release.apk
+   ```
+
+3. **Google Play Console**
+   - Go to [Google Play Console](https://play.google.com/console/).
+   - Sign in with your developer account.
+   - Click **Create App** (if not already created).
+     - Fill in app name, default language, app or game, free or paid.
+     - Accept declarations.
+   - Go to **Release > Production > Create New Release**.
+   - Choose **Google Play App Signing**.
+   - Upload the `app-release.apk`.
+   - Add release name and release notes.
+   - Review and roll out to production.
+
+---
+
+#### iOS Deployment (Manual)
+
+1. **Open Xcode Project**
+
+   - Navigate to `ios/` folder.
+   - Open `YourApp.xcworkspace` with Xcode.
+
+2. **Setup Team and Bundle ID**
+
+   - Select your target in the project navigator.
+   - Go to **Signing & Capabilities** tab.
+   - Add your Apple Developer Team and unique Bundle Identifier.
+
+3. **Archive the App**
+
+   - In Xcode, go to **Product > Archive**.
+   - Wait for Xcode to build and open the Organizer.
+
+4. **Upload to App Store**
+
+   - In the Organizer window, select the latest archive.
+   - Click **Distribute App** > **App Store Connect** > **Upload**.
+   - Follow the prompts and sign with your distribution certificate.
+
+5. **App Store Connect**
+   - Go to [App Store Connect](https://appstoreconnect.apple.com/).
+   - Create a new app (if needed), entering:
+     - Name, Primary Language, Bundle ID, SKU.
+   - Go to **TestFlight** to test or **Prepare for Submission**.
+   - Fill in screenshots, description, keywords, support URL, etc.
+   - Submit for review and wait for approval.
+
+---
+
+Ensure all steps are completed with the correct credentials and provisioning profiles. Screenshots, app info, and metadata are required during submission.
+
+---
+
+## 🧠 Notes
+
+- Environment variables are managed manually via config, no `.env` setup is used.
+- Patch files are handled using `patch-package` (runs postinstall).
+
+---
+
+## 👥 Author
+
+**Aditya Ranjan Gudu**  
+_Lead Developer – DevMart_
