@@ -16,6 +16,7 @@ interface Props {
 const AddressCard: React.FC<Props> = ({address, selectedId, onSelect}) => {
   return (
     <TouchableOpacity
+      testID="Address-card"
       style={[styles.card, selectedId === address.id && styles.selectedCard]}
       onPress={() => onSelect(address.id)}>
       <View style={styles.row}>

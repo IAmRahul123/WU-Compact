@@ -2,7 +2,8 @@
   "compilerOptions": {
     "jsx": "react",
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["jest", "@testing-library/jest-native"]
   },
   "extends": "@react-native/typescript-config/tsconfig.json"
 }

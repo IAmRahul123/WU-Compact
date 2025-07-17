@@ -11,11 +11,11 @@ import {navigate} from '../utils/commonNavigationController';
 const Header = () => {
   const count = useSelector(selectCartCount);
   const navigateToHome = () => navigate('Home');
-  const navigateToWishList = () => navigate('WishList');
+  // const navigateToWishList = () => navigate('WishList');
   const navigateToCart = () => navigate('Cart');
   return (
-    <View style={styles.container}>
-      <TouchableOpacity style={{}} onPress={navigateToHome}>
+    <View testID="Header-test" style={styles.container}>
+      <TouchableOpacity testID="logo-btn" style={{}} onPress={navigateToHome}>
         <FastImage
           source={require('../assets/logoLight2.png')}
           style={styles.logo}
@@ -24,7 +24,10 @@ const Header = () => {
       </TouchableOpacity>
       <View style={styles.rightContainer}>
         {/* <Icon name="heart" size={spacing(32)} onPress={navigateToWishList} /> */}
-        <TouchableOpacity style={styles.cart} onPress={navigateToCart}>
+        <TouchableOpacity
+          testID="cart-btn"
+          style={styles.cart}
+          onPress={navigateToCart}>
           <Icon name="cart" size={spacing(32)} />
           {count ? <Text style={styles.count}>{count}</Text> : <></>}
         </TouchableOpacity>

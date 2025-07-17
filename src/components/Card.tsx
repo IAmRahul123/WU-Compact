@@ -9,7 +9,11 @@ interface CardProps {
 }
 
 const Card = ({children, style}: CardProps) => {
-  return <View style={[styles.container, style]}>{children}</View>;
+  return (
+    <View testID="Card-test" style={[styles.container, style]}>
+      {children}
+    </View>
+  );
 };
 
 export default Card;

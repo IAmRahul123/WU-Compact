@@ -48,7 +48,7 @@ const AddressForm: React.FC<{onComplete?: () => void}> = ({onComplete}) => {
   };
 
   return (
-    <View style={styles.form}>
+    <View testID="Address-form" style={styles.form}>
       <Controller
         control={control}
         name="name"

@@ -121,6 +121,7 @@ const SignUp: React.FC = () => {
                 </Text>
               </View>
               <Button
+                testId="signup-btn"
                 handlePress={handleSubmit(onSubmit)}
                 title={t('auth.signUp')}
                 btnStyle={styles.btn}

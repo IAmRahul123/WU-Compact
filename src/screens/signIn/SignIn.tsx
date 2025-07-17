@@ -92,12 +92,16 @@ const SignIn: React.FC = () => {
                 />
                 <Text style={styles.signup}>
                   {t('auth.dontHaveAccount')}{' '}
-                  <Text style={styles.link} onPress={handleSignup}>
+                  <Text
+                    testID="Signin-signup-btn"
+                    style={styles.link}
+                    onPress={handleSignup}>
                     {t('auth.signUp')}
                   </Text>
                 </Text>
               </View>
               <Button
+                testId="Signin-btn"
                 handlePress={handleSubmit(onSubmit)}
                 title={t('auth.signIn')}
                 btnStyle={styles.btn}

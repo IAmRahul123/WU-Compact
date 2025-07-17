@@ -14,13 +14,14 @@ import {spacing} from '../../utils/responsiveSpacing';
 import fonts from '../../config/fonts';
 import {t} from 'i18next';
 import {Order} from '../../store/reducers/@types/orders';
+import FastImage from 'react-native-fast-image';
 
 const OrderScreen: React.FC = () => {
   const orders = useSelector((state: RootState) => state.order.list);
 
   const renderItem = ({item}: {item: Order}) => (
     <View style={styles.card}>
-      <Image source={{uri: item.image}} style={styles.image} />
+      <FastImage source={{uri: item.image}} style={styles.image} />
       <View style={styles.details}>
         <Text style={styles.title} numberOfLines={2}>
           {item.title}

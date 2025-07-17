@@ -31,7 +31,7 @@ class ErrorBoundary extends React.Component<
   render() {
     if (this.state.hasError) {
       return (
-        <View style={styles.center}>
+        <View testID="ErrorBoundary-test" style={styles.center}>
           <FastImage
             source={require('../assets/error.gif')}
             style={{height: spacing(200), width: spacing(200)}}

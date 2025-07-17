@@ -13,6 +13,7 @@ import {spacing} from '../utils/responsiveSpacing';
 
 interface ButtonProps {
   title: string;
+  testId?: string;
   btnStyle?: ViewStyle;
   textStyle?: TextStyle;
   handlePress: () => void;
@@ -22,9 +23,11 @@ const Button: React.FC<ButtonProps> = ({
   btnStyle,
   textStyle,
   handlePress,
+  testId = 'Button-test',
 }) => {
   return (
     <TouchableOpacity
+      testID={testId}
       style={[styles.container, btnStyle]}
       onPress={handlePress}>
       <Text style={[styles.title, textStyle]}>{title}</Text>

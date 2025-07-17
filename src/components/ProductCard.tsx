@@ -28,6 +28,7 @@ const ProductCard = React.memo(
       product.price - (product.price * (product?.discount || 0)) / 100;
     return (
       <TouchableOpacity
+        testID="ProductCard-test"
         style={[styles.card, {backgroundColor: colors.background}]}
         onPress={onPress}
         activeOpacity={0.9}>
@@ -59,12 +60,14 @@ const ProductCard = React.memo(
           {cartCount > 0 ? (
             <View style={styles.qtyControl}>
               <Button
+                testId={'btn-decrement'}
                 title="-"
                 handlePress={onDecrement}
                 btnStyle={styles.qtyBtn}
               />
               <Text style={styles.qtyText}>{cartCount}</Text>
               <Button
+                testId={'btn-increment'}
                 title="+"
                 handlePress={onIncrement}
                 btnStyle={styles.qtyBtn}
@@ -72,6 +75,7 @@ const ProductCard = React.memo(
             </View>
           ) : (
             <Button
+              testId={'btn-add'}
               title={t('cart.addToCart')}
               handlePress={onAdd}
               btnStyle={styles.button}

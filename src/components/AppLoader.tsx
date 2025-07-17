@@ -15,6 +15,7 @@ interface AppLoaderProps {
 const AppLoader: React.FC<AppLoaderProps> = ({visible}) => {
   return (
     <Modal
+      testID="AppLoader-test"
       visible={visible}
       transparent
       animationType="fade"

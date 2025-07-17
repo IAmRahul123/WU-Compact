@@ -13,7 +13,9 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "test:coverage": "jest --coverage",
+    "generate-tests": "node generate-tests.js"
   },
   "codegenConfig": {
     "name": "NativeToastSpec",
@@ -63,10 +65,14 @@
     "@react-native/eslint-config": "0.79.3",
     "@react-native/metro-config": "0.79.3",
     "@react-native/typescript-config": "0.79.3",
+    "@testing-library/jest-native": "^5.4.3",
+    "@testing-library/react-native": "^13.2.0",
     "@types/jest": "^29.5.13",
     "@types/react": "^19.0.0",
     "@types/react-native-vector-icons": "^6.4.18",
     "@types/react-test-renderer": "^19.0.0",
+    "@types/redux-mock-store": "^1.5.0",
+    "babel-jest": "^30.0.4",
     "cross-env": "^7.0.3",
     "eslint": "^8.19.0",
     "gulp": "^5.0.1",
@@ -78,6 +84,8 @@
     "prettier": "2.8.8",
     "react-native-codegen": "^0.70.7",
     "react-test-renderer": "19.0.0",
+    "redux-mock-store": "^1.5.5",
+    "ts-jest": "^29.4.0",
     "typescript": "5.0.4",
     "yargs": "^18.0.0"
   },

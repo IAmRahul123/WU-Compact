@@ -33,7 +33,7 @@ const Input: React.FC<InputProps> = ({
   };
 
   return (
-    <View style={styles.main}>
+    <View testID="Input-test" style={styles.main}>
       {label && <Text style={styles.label}>{label}</Text>}
       <View
         style={[styles.container, containerStyle, error && styles.errorInput]}>
@@ -45,6 +45,7 @@ const Input: React.FC<InputProps> = ({
         />
         {isPassword && (
           <Icon
+            testID="toggle-password-visibility"
             name={!show ? 'eye-with-line' : 'eye'}
             onPress={handleShow}
             size={spacing(16)}

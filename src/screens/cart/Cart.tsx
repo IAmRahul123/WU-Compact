@@ -23,10 +23,10 @@ import Button from '../../components/Button';
 import {spacing} from '../../utils/responsiveSpacing';
 import fonts from '../../config/fonts';
 import {navigate} from '../../utils/commonNavigationController';
+import {t} from 'i18next';
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const {t} = useTranslation();
 
   const cartItems = useSelector((state: RootState) => state.product.cart);
   const selectedCart = useSelector(selectCartItems);
@@ -48,8 +48,9 @@ const Cart = () => {
   );
 
   return (
-    <View style={styles.container}>
+    <View testID="Cart-screen" style={styles.container}>
       <FlatList
+        testID="Cart-list"
         data={selectedCart}
         keyExtractor={item => item?.id?.toString()}
         renderItem={({item}) => (
@@ -92,7 +93,11 @@ const Cart = () => {
               </Text>
             </View>
           </View>
-          <Button title={t('cart.buyNow')} handlePress={handleBuyNow} />
+          <Button
+            testId="Cart-buy"
+            title={t('cart.buyNow')}
+            handlePress={handleBuyNow}
+          />
         </View>
       )}
     </View>

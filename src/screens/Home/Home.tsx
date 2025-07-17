@@ -65,8 +65,9 @@ const Home = () => {
     );
   };
   return (
-    <View style={styles.container}>
+    <View testID="home-screen" style={styles.container}>
       <FlatList
+        testID="product-list"
         data={products}
         keyExtractor={item => item?.id?.toString()}
         onScroll={handleScroll}
