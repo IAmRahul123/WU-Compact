@@ -7,9 +7,9 @@ workflows:
       branch_patterns:
         - pattern: release
     environment:
-      vars:
-        # FIREBASE_APP_ID: $FIREBASE_APP_ID
-        # Ensure you store FIREBASE_TOKEN securely in Codemagic UI
+      # vars:
+      # FIREBASE_APP_ID: $FIREBASE_APP_ID
+      # Ensure you store FIREBASE_TOKEN securely in Codemagic UI
       groups:
         - Firebase
 
