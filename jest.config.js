@@ -18,15 +18,21 @@ module.exports = {
     '\\.(jpg|jpeg|png|svg)$': '<rootDir>/__mocks__/fileMock.js',
   },
   collectCoverage: true,
-  // collectCoverageFrom: [
-  //   'src/**/*.{ts,tsx,js,jsx}',
-  //   '!src/**/*.d.ts',
-  //   '!src/**/index.{ts,tsx,js,jsx}',
-  //   '!src/@types/**',
-  //   '!src/assets/**',
-  //   '!src/navigation/**',
-  //   '!__mocks__/**',
-  // ],
+  collectCoverageFrom: [
+    'src/**/*.{ts,tsx,js,jsx}',
+    '!src/**/*.d.ts',
+    '!src/**/index.{ts,tsx,js,jsx}',
+    '!src/@types/**',
+    '!src/assets/**',
+    '!src/navigation/**',
+    '!src/config/**',
+    '!src/hooks/**', // for now as i am not using it
+    '!src/nativeModules/**',
+    '!src/store/**',
+    '!src/utils/**',
+    '!src/services/**',
+    '!__mocks__/**',
+  ],
   coverageThreshold: {
     global: {
       branches: 70,
