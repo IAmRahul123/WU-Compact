@@ -9,21 +9,15 @@ workflows:
     environment:
       vars:
         FIREBASE_APP_ID: $FIREBASE_APP_ID
-        # Ensure you store FIREBASE_TOKEN securely in Codemagic UI
       groups:
-        - Firebase
+        - Firebase # Should contain FIREBASE_SERVICE_ACCOUNT securely
 
     scripts:
-      # - name: Install Dependencies
-      #   script: yarn install
-
       - name: Set Yarn Classic
-        script: |
-          yarn set version classic
+        script: yarn set version classic
 
       - name: Install Dependencies
-        script: |
-          yarn install --no-immutable
+        script: yarn install --no-immutable
 
       - name: Run Unit Tests
         script: yarn test || echo "Skipping tests"
@@ -37,8 +31,7 @@ workflows:
           echo "✅ Bumped version to $MAJOR.$MINOR"
 
       - name: Make gradlew executable
-        script: |
-          chmod +x android/gradlew
+        script: chmod +x android/gradlew
 
       - name: Build Release APK
         script: |
@@ -47,11 +40,18 @@ workflows:
             -PversionCode=$VERSION_CODE \
             -PversionName=$VERSION_NAME
 
-      - name: Upload to Firebase App Distribution
+      - name: Install Firebase CLI
+        script: curl -sL https://firebase.tools | bash
+
+      - name: Set Firebase Credentials
         script: |
-          curl -sL firebase.tools | bash
+          echo $FIREBASE_SERVICE_ACCOUNT > ${CM_BUILD_DIR}/firebase_service_account.json
+          export GOOGLE_APPLICATION_CREDENTIALS=${CM_BUILD_DIR}/firebase_service_account.json
+
+      - name: Distribute via Firebase
+        script: |
           firebase appdistribution:distribute \
-            app/build/outputs/apk/release/app-release.apk \
+            android/app/build/outputs/apk/release/app-release.apk \
             --app $FIREBASE_APP_ID \
             --groups "qa" \
             --release-notes "Branch: $CM_BRANCH\nCommit: $CM_COMMIT"
