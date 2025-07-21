@@ -16,7 +16,7 @@
     "postinstall": "patch-package",
     "test:coverage": "jest --coverage",
     "generate-tests": "node generate-tests.js",
-    "codemagic:apps": "node getCodemagicApps.js"
+    "deploy-android": "node getCodemagicApps.js"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": "tsc --noEmit --skipLibCheck --allowJs --checkJs"
