@@ -3999,6 +3999,11 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
+dotenv@^17.2.0:
+  version "17.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-17.2.0.tgz#e19678fdabcf86d4bfdb6764a758d7d44efbb6a2"
+  integrity sha512-Q4sgBT60gzd0BB0lSyYD3xM4YxrXA9y4uBDof1JNYGzOXrQdQ6yX+7XIAqoFOGQFOTK1D3Hts5OllpxMDZFONQ==
+
 dunder-proto@^1.0.0, dunder-proto@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/dunder-proto/-/dunder-proto-1.0.1.tgz#d7ae667e1dc83482f8b70fd0f6eefc50da30f58a"
@@ -7502,6 +7507,11 @@ react-native-codegen@^0.70.7:
     flow-parser "^0.121.0"
     jscodeshift "^0.14.0"
     nullthrows "^1.1.1"
+
+react-native-config@^1.5.5:
+  version "1.5.5"
+  resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-1.5.5.tgz#5977db58ff20b6fe9dd6fb28c815a9ba43d018d2"
+  integrity sha512-dGdLnBU0cd5xL5bF0ROTmHYbsstZnQKOEPfglvZi1vStvAjpld14X25K6mY3KGPTMWAzx6TbjKeq5dR+ILuMMA==
 
 react-native-fast-image@^8.6.3:
   version "8.6.3"
