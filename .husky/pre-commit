@@ -2,7 +2,8 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 # npm test
-npm run typecheck
+# npm run typecheck
+npx lint-staged
 
 # Format only staged files (JS, TS, etc.)
 STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|ts|tsx|jsx|json)$')

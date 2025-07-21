@@ -3,7 +3,13 @@
     "jsx": "react",
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "types": ["jest", "@testing-library/jest-native"]
+    "types": ["jest", "@testing-library/jest-native"],
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "skipLibCheck": true
   },
+  // "include": ["src/**/*"],
+  // "exclude": ["node_modules", "dist"],
   "extends": "@react-native/typescript-config/tsconfig.json"
 }

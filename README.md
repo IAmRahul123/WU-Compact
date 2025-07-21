@@ -74,6 +74,7 @@ yarn test:coverage   # For coverage report
 
 - [React Native Debugger](https://github.com/jhen0409/react-native-debugger)
 - [Flipper](https://fbflipper.com/) for inspecting network, Redux state, logs, etc.
+- Chucker for inspecting network (for Android Only) in notification tab.
 
 Ensure both are installed for optimal dev experience.
 
@@ -171,6 +172,25 @@ yarn prepare
 Ensure all steps are completed with the correct credentials and provisioning profiles. Screenshots, app info, and metadata are required during submission.
 
 ---
+
+## 📁 Project Structure
+
+```
+src/
+├── @types/           # Global TypeScript types
+├── assets/           # Images, fonts, and other static assets
+├── components/       # Reusable UI components
+│   └── __tests__/    # Component unit tests
+├── config/           # Environment, country, and language configuration
+├── constants/        # Static constants
+├── hooks/            # Custom React hooks
+├── nativeModules/    # Native module integrations
+├── navigation/       # React Navigation stack and routes
+├── screens/          # App screens grouped by feature (e.g., Home, Profile, Cart)
+├── services/         # API services and request handlers
+├── store/            # Redux store setup, reducers, sagas, middleware
+├── utils/            # Utility/helper functions
+```
 
 ## 🧠 Notes
 
